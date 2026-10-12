@@ -1,0 +1,680 @@
+{
+ "config": {
+  "dataset": "antmaze-large-stitch-v0",
+  "out_root": "runs_g0.9_d0_data_near_sweep_i10",
+  "gamma": 0.9,
+  "dim": 64,
+  "hidden": "512,512",
+  "batch_size": 256,
+  "steps": 500000,
+  "lr": 0.0003,
+  "inner_steps": 100,
+  "eval_every": 5000,
+  "heldout_batches": 50,
+  "patience": 20,
+  "min_delta": 0.005,
+  "min_steps": 100000,
+  "n_nodes": 2000,
+  "k": 10,
+  "edge_mode": "both",
+  "graph_mode": "data",
+  "data_horizon": 30,
+  "merge_delta": 3,
+  "merge_tpr": 0.9,
+  "data_uncapped": true,
+  "query_connect": "nearest",
+  "identify": "nearest",
+  "data_walk": "sweep",
+  "ident_max": 10.0,
+  "stitch_cost": "critic",
+  "offset_min": 0,
+  "tau": null,
+  "eps": 1e-06,
+  "seed": 0,
+  "calib_pairs": 20000,
+  "calib_bin_width": 10,
+  "calib_fit_max_delta": 0,
+  "delta_rel_min": 5,
+  "path_queries": 500,
+  "random_queries": 500,
+  "row_norm_states": 500,
+  "sweep_N": "1000,2000,5000",
+  "sweep_k": "10",
+  "xy_dims": "0,1",
+  "load_encoders": "runs_g0.9_d0/antmaze-large-stitch-v0/encoders.pkl"
+ },
+ "dataset": {
+  "n_train_traj": 5000,
+  "n_heldout_traj": 500,
+  "traj_len": 200,
+  "obs_dim": 29
+ },
+ "A_encoder": {
+  "heldout_loss": 0.006447643972933292,
+  "heldout_acc": 0.768750011920929,
+  "train_loss": 0.005666601471602917,
+  "train_acc": 0.8065234422683716,
+  "heldout_pos_logit": 0.38046225905418396,
+  "heldout_neg_logit": -25.857067108154297,
+  "chance_acc": 0.00390625,
+  "train_steps": 395000,
+  "clipped_positive_fraction": 0.042265623807907104,
+  "row_normalization": {
+   "n_states": 500,
+   "log_mean_exp_median": -6.0264181555555325,
+   "log_mean_exp_std": 0.8192307980687533,
+   "cv": 1.1526740244358507
+  },
+  "flags": [
+   "row-normalization CV 1.15 > 1 (poor calibration)"
+  ]
+ },
+ "B_calibration": {
+  "delta_max": 30,
+  "n_pairs": 20000,
+  "bin_centers": [
+   5.4832275611967365,
+   15.48372846414372,
+   25.46002124108633
+  ],
+  "bin_counts": [
+   6618,
+   6791,
+   6591
+  ],
+  "forward_median": [
+   3.730912303343105,
+   26.984479173158892,
+   42.00284816672339
+  ],
+  "forward_iqr": [
+   [
+    -4.5586309845640915,
+    15.092080162755014
+   ],
+   [
+    14.881677249040568,
+    39.702937039690084
+   ],
+   [
+    28.942819340731802,
+    55.96366984140341
+   ]
+  ],
+  "backward_median": [
+   36.30842500686526,
+   63.674687711845934,
+   86.36494253039304
+  ],
+  "backward_iqr": [
+   [
+    21.708834297056953,
+    52.83266267943091
+   ],
+   [
+    41.52988061027716,
+    92.9085184045836
+   ],
+   [
+    48.55566565738643,
+    128.63010868553982
+   ]
+  ],
+  "forward_spearman": 0.6849706234008086,
+  "backward_spearman": 0.5066116686718827,
+  "fit": {
+   "slope": 2.3252402150139644,
+   "intercept": -9.018908930024484,
+   "r2": 1.0,
+   "r2_pairs": 0.41390080723995004,
+   "max_delta": 10
+  },
+  "bins_within_20pct": [
+   true,
+   true,
+   true
+  ],
+  "delta_rel": 30.0,
+  "linear_range": [
+   1.0,
+   30.0
+  ],
+  "backward_minus_forward_median": 34.8371965494509,
+  "flags": [
+   "forward Spearman rho 0.685 < 0.8"
+  ]
+ },
+ "C_cost_matrix": {
+  "negative_fraction_all": 0.0001288144072036018,
+  "negative_fraction_edges": 0.027856547122602167,
+  "negative_min_cost": -31.332817191628433,
+  "diag_M": {
+   "p1": -0.8829613239788846,
+   "p50": 1.5580972492895446,
+   "p99": 5.76039087825969,
+   "max": 8.822760682891227,
+   "min": -2.3529267381761017,
+   "mean": 1.7215991248910658
+  },
+  "diag_M_std": 1.3253714018496472,
+  "diag_outliers_z3": 23,
+  "asymmetry_pearson": 0.5790226823363291,
+  "flags": [
+   "23 diagonal outliers (|z|>3) > 1% of nodes"
+  ]
+ },
+ "C_identification": {
+  "identify": "nearest",
+  "theta": null,
+  "horizon": 30,
+  "flags": [
+   "276 nodes have no outgoing data edge"
+  ],
+  "n_landings": 1005000,
+  "walk": "sweep",
+  "ident_max": 10.0,
+  "frac_states_assigned": 0.02190945273631841,
+  "nearest_cost_all_states": {
+   "p10": 16.525637435913087,
+   "p50": 28.587491989135742,
+   "p90": 46.32153854370117,
+   "mean": 30.85826368832315,
+   "max": 181.03306579589844
+  },
+  "nearest_cost_hist": {
+   "counts": [
+    3995,
+    1549,
+    2646,
+    4901,
+    8928,
+    14481,
+    22075,
+    31805,
+    42823,
+    54362,
+    64756,
+    72467,
+    77027,
+    78059,
+    75576,
+    69213,
+    62049,
+    54017,
+    45856,
+    38044,
+    31112,
+    25478,
+    20421,
+    16408,
+    13084,
+    10314,
+    8323,
+    6541,
+    5348,
+    4452,
+    3879,
+    3104,
+    2688,
+    2190,
+    2078,
+    1984,
+    1893,
+    1937,
+    1671,
+    1516,
+    1397,
+    1583,
+    1452,
+    1570,
+    1181,
+    1053,
+    886,
+    860,
+    812,
+    5156
+   ],
+   "edges": [
+    0.0,
+    2.0,
+    4.0,
+    6.0,
+    8.0,
+    10.0,
+    12.0,
+    14.0,
+    16.0,
+    18.0,
+    20.0,
+    22.0,
+    24.0,
+    26.0,
+    28.0,
+    30.0,
+    32.0,
+    34.0,
+    36.0,
+    38.0,
+    40.0,
+    42.0,
+    44.0,
+    46.0,
+    48.0,
+    50.0,
+    52.0,
+    54.0,
+    56.0,
+    58.0,
+    60.0,
+    62.0,
+    64.0,
+    66.0,
+    68.0,
+    70.0,
+    72.0,
+    74.0,
+    76.0,
+    78.0,
+    80.0,
+    82.0,
+    84.0,
+    86.0,
+    88.0,
+    90.0,
+    92.0,
+    94.0,
+    96.0,
+    98.0,
+    100.0
+   ]
+  },
+  "n_runs": 11668,
+  "run_length": {
+   "p10": 1.0,
+   "p50": 1.0,
+   "p90": 3.0,
+   "mean": 1.8871271854645184,
+   "max": 175.0
+  },
+  "n_label_switches": 7229,
+  "matches_per_landing": null,
+  "frac_landings_without_match": 0.9780905472636816,
+  "nodes_without_out_edge": 276,
+  "nodes_without_in_edge": 348,
+  "out_degree_uncapped": {
+   "p10": 0.0,
+   "p50": 2.0,
+   "p90": 7.0,
+   "mean": 2.9975,
+   "max": 26.0
+  },
+  "k_cap": null,
+  "frac_edges_delta0": 0.0,
+  "stitch_cost": "critic",
+  "stitch_cost_added": {
+   "p10": 2.5601965904235837,
+   "p50": 9.345297813415527,
+   "p90": 16.44133224487305,
+   "mean": 9.547915021767196,
+   "max": 19.939594268798828
+  },
+  "entry_hop_cost": {
+   "p10": 0.0,
+   "p50": 5.025146007537842,
+   "p90": 9.210698318481445,
+   "mean": 4.565036572263832,
+   "max": 9.999775886535645
+  },
+  "exit_hop_cost": {
+   "p10": 0.0,
+   "p50": 5.660022735595703,
+   "p90": 9.33418254852295,
+   "mean": 4.982878455571913,
+   "max": 9.999393463134766
+  },
+  "edge_offset": {
+   "p10": 5.0,
+   "p50": 34.0,
+   "p90": 98.0,
+   "mean": 44.13944954128441,
+   "max": 197.0
+  },
+  "identification_cost": {
+   "p10": 6.590314483642578,
+   "p50": 8.978096961975098,
+   "p90": 9.845138359069825,
+   "mean": 8.473847392449983,
+   "max": 9.999775886535645
+  },
+  "self_match_rate_by_offset": null,
+  "ident_xy_dist": {
+   "p10": 0.0,
+   "p50": 0.3295973986387253,
+   "p90": 0.7888674676418308,
+   "mean": 0.38069448780455434,
+   "max": 3.3974192142486572
+  },
+  "ident_xy_gt_4_count": 0,
+  "ident_xy_gt_4_frac": 0.0
+ },
+ "D_edges": {
+  "n_edges": 5995,
+  "cost": {
+   "p50": 44.0,
+   "p90": 108.81027922630312,
+   "p99": 168.30031957626346,
+   "max": 212.11595106124878,
+   "min": 1.0,
+   "mean": 53.68736456912015
+  },
+  "out_degree": {
+   "min": 0,
+   "mean": 2.9975,
+   "max": 26
+  },
+  "in_degree": {
+   "min": 0,
+   "mean": 2.9975,
+   "max": 26
+  },
+  "same_traj_fraction": 0.04036697247706422,
+  "same_traj_forward_fraction": 0.9504132231404959,
+  "same_traj_forward_cost_over_delta": {
+   "p10": 0.6553391277790069,
+   "p50": 0.9951325683308953,
+   "p90": 1.022712371142014,
+   "max": 2.5516635894775392,
+   "min": 0.017241379310344827,
+   "mean": 0.92697841838112
+  },
+  "same_traj_forward_abs_delta": {
+   "p10": 5.0,
+   "p50": 35.5,
+   "p90": 113.0,
+   "max": 194.0,
+   "min": 1.0,
+   "mean": 47.91304347826087
+  },
+  "same_traj_backward_cost": {
+   "p10": 2.600935769081116,
+   "p50": 18.500882387161255,
+   "p90": 48.00475187301636,
+   "max": 72.68441009521484,
+   "min": 1.0,
+   "mean": 22.321736832459766
+  },
+  "same_traj_cheap_forward_edges": 10,
+  "flags": [
+   "edge cost p99 168.3 > Delta_rel 30 (consider enabling tau)",
+   "min degree < k without tau (bug)",
+   "10 same-trajectory forward edges with cost < 0.5*Delta"
+  ],
+  "maze_shortcuts": {
+   "n_shortcut_edges": 18,
+   "shortcut_fraction": 0.0030025020850708924,
+   "shortcut_cost": {
+    "p10": 81.67116907835006,
+    "p50": 118.85578095912933,
+    "p90": 144.84075622558595,
+    "max": 156.04942798614502,
+    "min": 78.60231232643127,
+    "mean": 113.66469726794296
+   },
+   "shortcut_cheaper_than_delta_rel": 0,
+   "edge_bfs_cells": {
+    "p50": 1.0,
+    "p90": 3.0,
+    "p99": 4.0,
+    "max": 4.0,
+    "min": 0.0,
+    "mean": 1.0286905754795663
+   }
+  },
+  "identification_hop_shortcuts": {
+   "n_shortcut_edges": 0,
+   "shortcut_fraction": 0.0,
+   "shortcut_cost": null,
+   "shortcut_cheaper_than_delta_rel": 0,
+   "edge_bfs_cells": {
+    "p50": 0.0,
+    "p90": 0.0,
+    "p99": 1.0,
+    "max": 1.0,
+    "min": 0.0,
+    "mean": 0.05521267723102585
+   }
+  }
+ },
+ "E_connectivity": {
+  "n_scc": 845,
+  "largest_scc_fraction": 0.5345,
+  "n_wcc": 76,
+  "flags": [
+   "largest SCC 0.534 < 0.95",
+   "76 weakly connected components > 1"
+  ]
+ },
+ "F_paths": {
+  "heldout_same_traj": {
+   "n": 500,
+   "delta_range": [
+    60,
+    200
+   ],
+   "success_rate": 0.968,
+   "cost_over_delta": {
+    "p10": 0.6672496032006188,
+    "p50": 1.1538121336680716,
+    "p90": 2.008827802148281,
+    "max": 7.529134243366742,
+    "min": 0.0634792178900347,
+    "mean": 1.2913140430077075
+   },
+   "hops": {
+    "p10": 1.0,
+    "p50": 1.0,
+    "p90": 7.0,
+    "max": 21.0,
+    "min": 1.0,
+    "mean": 3.12603305785124
+   },
+   "max_edge_cost_on_path": {
+    "p50": 108.06629222414462,
+    "p90": 184.50660817889496,
+    "p99": 207.51902737694837,
+    "max": 208.7793219123913,
+    "min": 7.109672403683887,
+    "mean": 111.83532988700263
+   },
+   "n_wormhole_suspects": 6,
+   "flags": [
+    "6 held-out queries with path cost / Delta < 0.3 (wormhole suspects)"
+   ]
+  },
+  "random_cross_traj": {
+   "n": 499,
+   "reachability": 0.7835671342685371,
+   "cost": {
+    "p10": 114.92924933749379,
+    "p50": 304.2307132277442,
+    "p90": 611.300792680949,
+    "max": 1018.709495818882,
+    "min": 10.801041261786573,
+    "mean": 332.8572116211869
+   },
+   "hops": {
+    "p10": 1.0,
+    "p50": 10.0,
+    "p90": 20.0,
+    "max": 33.0,
+    "min": 1.0,
+    "mean": 9.445012787723785
+   },
+   "fwd_bwd_pearson": 0.3671552081807875,
+   "fwd_over_bwd_median": 1.0161573344288242,
+   "fwd_over_bwd_abs_log_median": 0.4229060519290504,
+   "flags": []
+  },
+  "eval_tasks": {
+   "tasks": [
+    {
+     "task_id": 1,
+     "success": true,
+     "cost": 578.734033819441,
+     "hops": 17,
+     "max_edge_cost": 102.1608362197876
+    },
+    {
+     "task_id": 2,
+     "success": true,
+     "cost": 592.7976427332001,
+     "hops": 18,
+     "max_edge_cost": 94.2509446144104
+    },
+    {
+     "task_id": 3,
+     "success": true,
+     "cost": 474.1713754441023,
+     "hops": 12,
+     "max_edge_cost": 106.42019701004028
+    },
+    {
+     "task_id": 4,
+     "success": true,
+     "cost": 558.2909430030539,
+     "hops": 11,
+     "max_edge_cost": 98.89146995544434
+    },
+    {
+     "task_id": 5,
+     "success": false,
+     "cost": null,
+     "hops": null,
+     "max_edge_cost": null
+    }
+   ],
+   "flags": [
+    "1 of 5 evaluation tasks have no path"
+   ]
+  },
+  "query_connect": "nearest",
+  "n_query_fallback": 0,
+  "n_query_far": 788,
+  "flags": [
+   "6 held-out queries with path cost / Delta < 0.3 (wormhole suspects)",
+   "1 of 5 evaluation tasks have no path"
+  ],
+  "wormhole_triage": [
+   {
+    "query": 97,
+    "delta": 69,
+    "path_cost": 19.727947889101227,
+    "hops": 1,
+    "cheapest_edge_cost": 19.727947889101227,
+    "cheapest_edge": [
+     2000,
+     2001
+    ]
+   },
+   {
+    "query": 218,
+    "delta": 96,
+    "path_cost": 18.759893089377638,
+    "hops": 1,
+    "cheapest_edge_cost": 18.759893089377638,
+    "cheapest_edge": [
+     2000,
+     2001
+    ]
+   },
+   {
+    "query": 305,
+    "delta": 100,
+    "path_cost": 11.562013484396813,
+    "hops": 1,
+    "cheapest_edge_cost": 11.562013484396813,
+    "cheapest_edge": [
+     2000,
+     2001
+    ]
+   },
+   {
+    "query": 319,
+    "delta": 107,
+    "path_cost": 24.63314854291701,
+    "hops": 1,
+    "cheapest_edge_cost": 24.63314854291701,
+    "cheapest_edge": [
+     2000,
+     2001
+    ]
+   },
+   {
+    "query": 343,
+    "delta": 112,
+    "path_cost": 7.109672403683887,
+    "hops": 1,
+    "cheapest_edge_cost": 7.109672403683887,
+    "cheapest_edge": [
+     2000,
+     2001
+    ]
+   },
+   {
+    "query": 459,
+    "delta": 64,
+    "path_cost": 16.006296436740875,
+    "hops": 1,
+    "cheapest_edge_cost": 16.006296436740875,
+    "cheapest_edge": [
+     2000,
+     2001
+    ]
+   }
+  ]
+ },
+ "G_sweep": [
+  {
+   "N": 1000,
+   "k": 10,
+   "n_edges": 2127,
+   "largest_scc_fraction": 0.087,
+   "n_wcc": 121,
+   "edge_p99": 176.8110650682449,
+   "negative_fraction_edges": 0.019746121297602257,
+   "negative_fraction_all": 0.00014214214214214215,
+   "path_success": 0.812,
+   "median_path_ratio": 1.0909446933588358,
+   "wormhole_suspects": 3,
+   "shortcut_fraction": 0.005171603196991067
+  },
+  {
+   "N": 2000,
+   "k": 10,
+   "n_edges": 5995,
+   "largest_scc_fraction": 0.5345,
+   "n_wcc": 76,
+   "edge_p99": 168.30031957626346,
+   "negative_fraction_edges": 0.027856547122602167,
+   "negative_fraction_all": 0.0001288144072036018,
+   "path_success": 0.968,
+   "median_path_ratio": 1.1538121336680716,
+   "wormhole_suspects": 6,
+   "shortcut_fraction": 0.0030025020850708924
+  },
+  {
+   "N": 5000,
+   "k": 10,
+   "n_edges": 19274,
+   "largest_scc_fraction": 0.7318,
+   "n_wcc": 40,
+   "edge_p99": 131.08442333221444,
+   "negative_fraction_edges": 0.045138528587734775,
+   "negative_fraction_all": 0.00012250450090018004,
+   "path_success": 1.0,
+   "median_path_ratio": 1.0792795387729932,
+   "wormhole_suspects": 3,
+   "shortcut_fraction": 0.0018678011829407492
+  }
+ ]
+}

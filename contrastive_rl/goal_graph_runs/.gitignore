@@ -1,0 +1,9 @@
+# run outputs: keep the text summaries/metrics, skip binaries, plots and logs (1.3 GB)
+*.npz
+*.pkl
+*.png
+wormholes/
+stdout.txt
+stdout_metrics.txt
+log.txt
+train_log.csv

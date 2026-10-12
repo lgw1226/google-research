@@ -1,0 +1,5713 @@
+{
+ "config": {
+  "dataset": "pointmaze-large-stitch-v0",
+  "out_root": "runs_g0.9_d0_data_near_sweep_i30",
+  "gamma": 0.9,
+  "dim": 64,
+  "hidden": "512,512",
+  "batch_size": 256,
+  "steps": 500000,
+  "lr": 0.0003,
+  "inner_steps": 100,
+  "eval_every": 5000,
+  "heldout_batches": 50,
+  "patience": 20,
+  "min_delta": 0.005,
+  "min_steps": 100000,
+  "n_nodes": 2000,
+  "k": 10,
+  "edge_mode": "both",
+  "graph_mode": "data",
+  "data_horizon": 30,
+  "merge_delta": 3,
+  "merge_tpr": 0.9,
+  "data_uncapped": true,
+  "query_connect": "nearest",
+  "identify": "nearest",
+  "data_walk": "sweep",
+  "ident_max": 30.0,
+  "stitch_cost": "critic",
+  "offset_min": 0,
+  "tau": null,
+  "eps": 1e-06,
+  "seed": 0,
+  "calib_pairs": 20000,
+  "calib_bin_width": 10,
+  "calib_fit_max_delta": 0,
+  "delta_rel_min": 5,
+  "path_queries": 500,
+  "random_queries": 500,
+  "row_norm_states": 500,
+  "sweep_N": "1000,2000,5000",
+  "sweep_k": "10",
+  "xy_dims": "0,1",
+  "load_encoders": "runs_g0.9_d0/pointmaze-large-stitch-v0/encoders.pkl"
+ },
+ "dataset": {
+  "n_train_traj": 5000,
+  "n_heldout_traj": 500,
+  "traj_len": 200,
+  "obs_dim": 2
+ },
+ "A_encoder": {
+  "heldout_loss": 0.010730910114943981,
+  "heldout_acc": 0.3680468797683716,
+  "train_loss": 0.010505511425435543,
+  "train_acc": 0.36738279461860657,
+  "heldout_pos_logit": -1.5509454011917114,
+  "heldout_neg_logit": -14.476166725158691,
+  "chance_acc": 0.00390625,
+  "train_steps": 360000,
+  "clipped_positive_fraction": 0.041132811456918716,
+  "row_normalization": {
+   "n_states": 500,
+   "log_mean_exp_median": -5.609308339582283,
+   "log_mean_exp_std": 0.32649347054708905,
+   "cv": 0.34880930507801094
+  },
+  "flags": []
+ },
+ "B_calibration": {
+  "delta_max": 30,
+  "n_pairs": 20000,
+  "bin_centers": [
+   5.4832275611967365,
+   15.48372846414372,
+   25.46002124108633
+  ],
+  "bin_counts": [
+   6618,
+   6791,
+   6591
+  ],
+  "forward_median": [
+   1.3926747173984044,
+   3.8574719867124148,
+   7.401373935176554
+  ],
+  "forward_iqr": [
+   [
+    0.10200513382408036,
+    4.645393051845423
+   ],
+   [
+    0.7279509735201065,
+    19.605467053354744
+   ],
+   [
+    0.8518919348858025,
+    33.05109236997225
+   ]
+  ],
+  "backward_median": [
+   2.12885127267106,
+   4.48490397518863,
+   9.204367146129798
+  ],
+  "backward_iqr": [
+   [
+    0.45988554370641943,
+    7.964181080550185
+   ],
+   [
+    0.7749810483367959,
+    31.43676707610808
+   ],
+   [
+    0.8286040344151228,
+    47.75423602596193
+   ]
+  ],
+  "forward_spearman": 0.3223269332416797,
+  "backward_spearman": 0.25129479470454885,
+  "fit": {
+   "slope": 0.24646738130763768,
+   "intercept": 0.04123797927638096,
+   "r2": 1.0,
+   "r2_pairs": -0.119037893410743,
+   "max_delta": 10
+  },
+  "bins_within_20pct": [
+   true,
+   true,
+   true
+  ],
+  "delta_rel": 30.0,
+  "linear_range": [
+   1.0,
+   30.0
+  ],
+  "backward_minus_forward_median": 0.8757778023380809,
+  "flags": [
+   "forward Spearman rho 0.322 < 0.8"
+  ]
+ },
+ "C_cost_matrix": {
+  "negative_fraction_all": 0.002205352676338169,
+  "negative_fraction_edges": 0.17241458066873744,
+  "negative_min_cost": -15.989771925910633,
+  "diag_M": {
+   "p1": -2.2558989204241895,
+   "p50": -1.0900413256007466,
+   "p99": 2.0646370280631343,
+   "max": 4.226875117556614,
+   "min": -2.399921727630476,
+   "mean": -0.9027476023834801
+  },
+  "diag_M_std": 0.8937800155055684,
+  "diag_outliers_z3": 29,
+  "asymmetry_pearson": 0.6243165136917984,
+  "flags": [
+   "negative fraction (selected edges) 0.172 > 3%",
+   "29 diagonal outliers (|z|>3) > 1% of nodes"
+  ]
+ },
+ "C_identification": {
+  "identify": "nearest",
+  "theta": null,
+  "horizon": 30,
+  "flags": [],
+  "n_landings": 1005000,
+  "walk": "sweep",
+  "ident_max": 30.0,
+  "frac_states_assigned": 0.9969522388059702,
+  "nearest_cost_all_states": {
+   "p10": 0.0453108474612236,
+   "p50": 0.42001041769981384,
+   "p90": 5.2170338153839095,
+   "mean": 1.9008295442663934,
+   "max": 138.1942138671875
+  },
+  "nearest_cost_hist": {
+   "counts": [
+    748016,
+    117710,
+    56479,
+    30452,
+    17704,
+    10634,
+    6711,
+    4155,
+    2951,
+    2123,
+    1602,
+    1240,
+    957,
+    695,
+    508,
+    431,
+    367,
+    279,
+    325,
+    310,
+    280,
+    195,
+    126,
+    87,
+    76,
+    68,
+    74,
+    59,
+    46,
+    36,
+    42,
+    24,
+    30,
+    23,
+    39,
+    21,
+    14,
+    21,
+    16,
+    9,
+    6,
+    10,
+    7,
+    6,
+    3,
+    9,
+    4,
+    2,
+    1,
+    17
+   ],
+   "edges": [
+    0.0,
+    2.0,
+    4.0,
+    6.0,
+    8.0,
+    10.0,
+    12.0,
+    14.0,
+    16.0,
+    18.0,
+    20.0,
+    22.0,
+    24.0,
+    26.0,
+    28.0,
+    30.0,
+    32.0,
+    34.0,
+    36.0,
+    38.0,
+    40.0,
+    42.0,
+    44.0,
+    46.0,
+    48.0,
+    50.0,
+    52.0,
+    54.0,
+    56.0,
+    58.0,
+    60.0,
+    62.0,
+    64.0,
+    66.0,
+    68.0,
+    70.0,
+    72.0,
+    74.0,
+    76.0,
+    78.0,
+    80.0,
+    82.0,
+    84.0,
+    86.0,
+    88.0,
+    90.0,
+    92.0,
+    94.0,
+    96.0,
+    98.0,
+    100.0
+   ]
+  },
+  "n_runs": 739992,
+  "run_length": {
+   "p10": 1.0,
+   "p50": 1.0,
+   "p90": 2.0,
+   "mean": 1.35398355657899,
+   "max": 24.0
+  },
+  "n_label_switches": 734992,
+  "matches_per_landing": null,
+  "frac_landings_without_match": 0.0030477611940298507,
+  "nodes_without_out_edge": 0,
+  "nodes_without_in_edge": 0,
+  "out_degree_uncapped": {
+   "p10": 6.0,
+   "p50": 19.0,
+   "p90": 42.0,
+   "mean": 21.892,
+   "max": 63.0
+  },
+  "k_cap": null,
+  "frac_edges_delta0": 0.0,
+  "stitch_cost": "critic",
+  "stitch_cost_added": {
+   "p10": 0.0,
+   "p50": 0.01896748971194029,
+   "p90": 1.531102359294892,
+   "mean": 0.7372610649587619,
+   "max": 51.999027252197266
+  },
+  "entry_hop_cost": {
+   "p10": 0.0,
+   "p50": 0.0,
+   "p90": 0.39384469687938783,
+   "mean": 0.3248236126482849,
+   "max": 29.639528274536133
+  },
+  "exit_hop_cost": {
+   "p10": 0.0,
+   "p50": 0.0,
+   "p90": 0.6583910107612614,
+   "mean": 0.41243745282648525,
+   "max": 28.13376808166504
+  },
+  "edge_offset": {
+   "p10": 1.0,
+   "p50": 1.0,
+   "p90": 1.0,
+   "mean": 1.0657774529508497,
+   "max": 23.0
+  },
+  "identification_cost": {
+   "p10": 0.045185711607337004,
+   "p50": 0.1811726838350296,
+   "p90": 3.3005929946899473,
+   "mean": 1.1147409766907734,
+   "max": 29.70263671875
+  },
+  "self_match_rate_by_offset": null,
+  "ident_xy_dist": {
+   "p10": 0.00803599413484335,
+   "p50": 0.03002410475164652,
+   "p90": 0.24688518792390848,
+   "mean": 0.09492001713795588,
+   "max": 3.9825196266174316
+  },
+  "ident_xy_gt_4_count": 0,
+  "ident_xy_gt_4_frac": 0.0
+ },
+ "D_edges": {
+  "n_edges": 43784,
+  "cost": {
+   "p50": 1.019369151443243,
+   "p90": 2.769092583656313,
+   "p99": 14.73931554794305,
+   "max": 66.94441032409668,
+   "min": 1.0,
+   "mean": 1.8030385184256197
+  },
+  "out_degree": {
+   "min": 1,
+   "mean": 21.892,
+   "max": 63
+  },
+  "in_degree": {
+   "min": 1,
+   "mean": 21.892,
+   "max": 65
+  },
+  "same_traj_fraction": 0.005983921067056459,
+  "same_traj_forward_fraction": 0.49236641221374045,
+  "same_traj_forward_cost_over_delta": {
+   "p10": 0.013888888888888888,
+   "p50": 0.038461538461538464,
+   "p90": 0.4084691086411477,
+   "max": 5.1697163581848145,
+   "min": 0.00980392156862745,
+   "mean": 0.1731102223613732
+  },
+  "same_traj_forward_abs_delta": {
+   "p10": 3.0,
+   "p50": 26.0,
+   "p90": 76.00000000000001,
+   "max": 131.0,
+   "min": 1.0,
+   "mean": 35.46511627906977
+  },
+  "same_traj_backward_cost": {
+   "p10": 1.0,
+   "p50": 1.0066098826937377,
+   "p90": 1.6583647072315215,
+   "max": 11.605691909790039,
+   "min": 1.0,
+   "mean": 1.4068375829685151
+  },
+  "same_traj_cheap_forward_edges": 117,
+  "flags": [
+   "min degree < k without tau (bug)",
+   "74 in-degree hubs with in-degree > 5k (max 65); suspected wormhole attractors",
+   "117 same-trajectory forward edges with cost < 0.5*Delta"
+  ],
+  "maze_shortcuts": {
+   "n_shortcut_edges": 0,
+   "shortcut_fraction": 0.0,
+   "shortcut_cost": null,
+   "shortcut_cheaper_than_delta_rel": 0,
+   "edge_bfs_cells": {
+    "p50": 0.0,
+    "p90": 0.0,
+    "p99": 1.0,
+    "max": 2.0,
+    "min": 0.0,
+    "mean": 0.03416773250502467
+   }
+  },
+  "identification_hop_shortcuts": {
+   "n_shortcut_edges": 0,
+   "shortcut_fraction": 0.0,
+   "shortcut_cost": null,
+   "shortcut_cheaper_than_delta_rel": 0,
+   "edge_bfs_cells": {
+    "p50": 0.0,
+    "p90": 0.0,
+    "p99": 1.0,
+    "max": 1.0,
+    "min": 0.0,
+    "mean": 0.015964735976612462
+   }
+  }
+ },
+ "E_connectivity": {
+  "n_scc": 1,
+  "largest_scc_fraction": 1.0,
+  "n_wcc": 1,
+  "flags": []
+ },
+ "F_paths": {
+  "heldout_same_traj": {
+   "n": 500,
+   "delta_range": [
+    60,
+    200
+   ],
+   "success_rate": 1.0,
+   "cost_over_delta": {
+    "p10": 0.04054488857764653,
+    "p50": 0.1435947756146974,
+    "p90": 0.2712705880475744,
+    "max": 0.6506121555029841,
+    "min": 8.928571428571428e-09,
+    "mean": 0.1566108958696318
+   },
+   "hops": {
+    "p10": 4.0,
+    "p50": 15.0,
+    "p90": 22.0,
+    "max": 29.0,
+    "min": 1.0,
+    "mean": 14.062
+   },
+   "max_edge_cost_on_path": {
+    "p50": 3.3853096663951874,
+    "p90": 8.972771787167972,
+    "p99": 24.210251286379048,
+    "max": 32.35238603095791,
+    "min": 1e-06,
+    "mean": 4.567601895311776
+   },
+   "n_wormhole_suspects": 465,
+   "flags": [
+    "465 held-out queries with path cost / Delta < 0.3 (wormhole suspects)"
+   ]
+  },
+  "random_cross_traj": {
+   "n": 499,
+   "reachability": 1.0,
+   "cost": {
+    "p10": 12.48701633335921,
+    "p50": 45.08788597539784,
+    "p90": 80.05394414184366,
+    "max": 135.357790091075,
+    "min": 1e-06,
+    "mean": 46.34987659345447
+   },
+   "hops": {
+    "p10": 11.0,
+    "p50": 32.0,
+    "p90": 56.0,
+    "max": 81.0,
+    "min": 1.0,
+    "mean": 33.142284569138276
+   },
+   "fwd_bwd_pearson": 0.875213956167234,
+   "fwd_over_bwd_median": 0.9661689306518331,
+   "fwd_over_bwd_abs_log_median": 0.2079391223234123,
+   "flags": []
+  },
+  "eval_tasks": {
+   "tasks": [
+    {
+     "task_id": 1,
+     "success": true,
+     "cost": 122.53008166021581,
+     "hops": 68,
+     "max_edge_cost": 9.752374649047852
+    },
+    {
+     "task_id": 2,
+     "success": true,
+     "cost": 155.37753169026203,
+     "hops": 88,
+     "max_edge_cost": 19.4063984540376
+    },
+    {
+     "task_id": 3,
+     "success": true,
+     "cost": 78.01068473541483,
+     "hops": 60,
+     "max_edge_cost": 3.221489280462265
+    },
+    {
+     "task_id": 4,
+     "success": true,
+     "cost": 145.13157430627092,
+     "hops": 62,
+     "max_edge_cost": 19.703759926693248
+    },
+    {
+     "task_id": 5,
+     "success": true,
+     "cost": 145.85186916328766,
+     "hops": 78,
+     "max_edge_cost": 19.375882148742676
+    }
+   ],
+   "flags": []
+  },
+  "query_connect": "nearest",
+  "n_query_fallback": 0,
+  "n_query_far": 7,
+  "flags": [
+   "465 held-out queries with path cost / Delta < 0.3 (wormhole suspects)"
+  ],
+  "wormhole_triage": [
+   {
+    "query": 0,
+    "delta": 164,
+    "path_cost": 25.273388247024187,
+    "hops": 16,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1567,
+     2001
+    ]
+   },
+   {
+    "query": 1,
+    "delta": 111,
+    "path_cost": 24.326191967576047,
+    "hops": 21,
+    "cheapest_edge_cost": 0.1257755942146311,
+    "cheapest_edge": [
+     1423,
+     2001
+    ]
+   },
+   {
+    "query": 2,
+    "delta": 166,
+    "path_cost": 21.892481686295895,
+    "hops": 20,
+    "cheapest_edge_cost": 0.051574510732661026,
+    "cheapest_edge": [
+     1250,
+     2001
+    ]
+   },
+   {
+    "query": 3,
+    "delta": 69,
+    "path_cost": 9.77136317183952,
+    "hops": 1,
+    "cheapest_edge_cost": 9.77136317183952,
+    "cheapest_edge": [
+     2000,
+     2001
+    ]
+   },
+   {
+    "query": 4,
+    "delta": 89,
+    "path_cost": 0.5228188813454462,
+    "hops": 1,
+    "cheapest_edge_cost": 0.5228188813454462,
+    "cheapest_edge": [
+     2000,
+     2001
+    ]
+   },
+   {
+    "query": 5,
+    "delta": 129,
+    "path_cost": 20.521331338896502,
+    "hops": 14,
+    "cheapest_edge_cost": 1.0,
+    "cheapest_edge": [
+     1113,
+     799
+    ]
+   },
+   {
+    "query": 6,
+    "delta": 160,
+    "path_cost": 22.10178604563034,
+    "hops": 14,
+    "cheapest_edge_cost": 0.013319332653508667,
+    "cheapest_edge": [
+     538,
+     2001
+    ]
+   },
+   {
+    "query": 7,
+    "delta": 109,
+    "path_cost": 7.789888485103194,
+    "hops": 7,
+    "cheapest_edge_cost": 0.27698034247170256,
+    "cheapest_edge": [
+     150,
+     2001
+    ]
+   },
+   {
+    "query": 8,
+    "delta": 137,
+    "path_cost": 5.211967434253216,
+    "hops": 7,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     896
+    ]
+   },
+   {
+    "query": 9,
+    "delta": 90,
+    "path_cost": 0.1657618782196982,
+    "hops": 1,
+    "cheapest_edge_cost": 0.1657618782196982,
+    "cheapest_edge": [
+     2000,
+     2001
+    ]
+   },
+   {
+    "query": 10,
+    "delta": 196,
+    "path_cost": 40.55230948747227,
+    "hops": 23,
+    "cheapest_edge_cost": 0.02681517022495374,
+    "cheapest_edge": [
+     1540,
+     2001
+    ]
+   },
+   {
+    "query": 11,
+    "delta": 120,
+    "path_cost": 11.915410804826463,
+    "hops": 12,
+    "cheapest_edge_cost": 0.49960735319502736,
+    "cheapest_edge": [
+     1004,
+     2001
+    ]
+   },
+   {
+    "query": 12,
+    "delta": 195,
+    "path_cost": 18.786958936688812,
+    "hops": 19,
+    "cheapest_edge_cost": 0.29721617873639866,
+    "cheapest_edge": [
+     681,
+     2001
+    ]
+   },
+   {
+    "query": 13,
+    "delta": 162,
+    "path_cost": 18.22767899236855,
+    "hops": 14,
+    "cheapest_edge_cost": 1.0,
+    "cheapest_edge": [
+     1058,
+     1367
+    ]
+   },
+   {
+    "query": 14,
+    "delta": 192,
+    "path_cost": 30.256054543972187,
+    "hops": 19,
+    "cheapest_edge_cost": 0.09496643450047541,
+    "cheapest_edge": [
+     1670,
+     2001
+    ]
+   },
+   {
+    "query": 15,
+    "delta": 90,
+    "path_cost": 22.437013360109642,
+    "hops": 16,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     344
+    ]
+   },
+   {
+    "query": 16,
+    "delta": 66,
+    "path_cost": 1.6810883134184653,
+    "hops": 3,
+    "cheapest_edge_cost": 0.0977622271429168,
+    "cheapest_edge": [
+     148,
+     2001
+    ]
+   },
+   {
+    "query": 17,
+    "delta": 120,
+    "path_cost": 19.255640432052225,
+    "hops": 11,
+    "cheapest_edge_cost": 0.18326386438177644,
+    "cheapest_edge": [
+     2000,
+     1443
+    ]
+   },
+   {
+    "query": 18,
+    "delta": 188,
+    "path_cost": 24.961788855801,
+    "hops": 17,
+    "cheapest_edge_cost": 0.032024328187640956,
+    "cheapest_edge": [
+     1571,
+     2001
+    ]
+   },
+   {
+    "query": 19,
+    "delta": 139,
+    "path_cost": 33.43054724921115,
+    "hops": 23,
+    "cheapest_edge_cost": 0.07409585939627723,
+    "cheapest_edge": [
+     71,
+     2001
+    ]
+   },
+   {
+    "query": 20,
+    "delta": 170,
+    "path_cost": 23.61207271485698,
+    "hops": 15,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     995,
+     2001
+    ]
+   },
+   {
+    "query": 21,
+    "delta": 193,
+    "path_cost": 32.863631502372286,
+    "hops": 15,
+    "cheapest_edge_cost": 0.10438342444909524,
+    "cheapest_edge": [
+     1755,
+     2001
+    ]
+   },
+   {
+    "query": 22,
+    "delta": 169,
+    "path_cost": 24.176212469750737,
+    "hops": 17,
+    "cheapest_edge_cost": 0.20909949278199372,
+    "cheapest_edge": [
+     453,
+     2001
+    ]
+   },
+   {
+    "query": 23,
+    "delta": 121,
+    "path_cost": 10.697962806990581,
+    "hops": 9,
+    "cheapest_edge_cost": 0.12218213511613099,
+    "cheapest_edge": [
+     883,
+     2001
+    ]
+   },
+   {
+    "query": 24,
+    "delta": 166,
+    "path_cost": 16.99198516055919,
+    "hops": 16,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1261
+    ]
+   },
+   {
+    "query": 26,
+    "delta": 64,
+    "path_cost": 0.12697492250317335,
+    "hops": 1,
+    "cheapest_edge_cost": 0.12697492250317335,
+    "cheapest_edge": [
+     2000,
+     2001
+    ]
+   },
+   {
+    "query": 27,
+    "delta": 147,
+    "path_cost": 21.787179152690037,
+    "hops": 14,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     492,
+     2001
+    ]
+   },
+   {
+    "query": 28,
+    "delta": 79,
+    "path_cost": 19.77189691851326,
+    "hops": 15,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     763
+    ]
+   },
+   {
+    "query": 29,
+    "delta": 197,
+    "path_cost": 48.07563168660287,
+    "hops": 29,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     789
+    ]
+   },
+   {
+    "query": 30,
+    "delta": 154,
+    "path_cost": 13.755616216231537,
+    "hops": 13,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1644
+    ]
+   },
+   {
+    "query": 31,
+    "delta": 84,
+    "path_cost": 13.736778207055693,
+    "hops": 10,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1350,
+     2001
+    ]
+   },
+   {
+    "query": 32,
+    "delta": 106,
+    "path_cost": 9.430338741036605,
+    "hops": 9,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     738
+    ]
+   },
+   {
+    "query": 33,
+    "delta": 73,
+    "path_cost": 1.5866363461053616,
+    "hops": 3,
+    "cheapest_edge_cost": 0.10584751011454208,
+    "cheapest_edge": [
+     1895,
+     2001
+    ]
+   },
+   {
+    "query": 34,
+    "delta": 157,
+    "path_cost": 15.97556646396122,
+    "hops": 11,
+    "cheapest_edge_cost": 0.11643441086538141,
+    "cheapest_edge": [
+     890,
+     2001
+    ]
+   },
+   {
+    "query": 35,
+    "delta": 126,
+    "path_cost": 23.46481180248112,
+    "hops": 17,
+    "cheapest_edge_cost": 0.1758780991893738,
+    "cheapest_edge": [
+     1619,
+     2001
+    ]
+   },
+   {
+    "query": 36,
+    "delta": 122,
+    "path_cost": 14.193696940716737,
+    "hops": 12,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     4,
+     2001
+    ]
+   },
+   {
+    "query": 38,
+    "delta": 77,
+    "path_cost": 22.804673041667463,
+    "hops": 14,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     243
+    ]
+   },
+   {
+    "query": 39,
+    "delta": 116,
+    "path_cost": 24.387157694713103,
+    "hops": 18,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     117
+    ]
+   },
+   {
+    "query": 40,
+    "delta": 179,
+    "path_cost": 37.0730645896748,
+    "hops": 20,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     190,
+     2001
+    ]
+   },
+   {
+    "query": 41,
+    "delta": 152,
+    "path_cost": 39.2731218997275,
+    "hops": 23,
+    "cheapest_edge_cost": 4.525767126574471e-06,
+    "cheapest_edge": [
+     1028,
+     2001
+    ]
+   },
+   {
+    "query": 42,
+    "delta": 93,
+    "path_cost": 21.10652336868682,
+    "hops": 14,
+    "cheapest_edge_cost": 1.0,
+    "cheapest_edge": [
+     699,
+     1390
+    ]
+   },
+   {
+    "query": 43,
+    "delta": 164,
+    "path_cost": 19.287641429652187,
+    "hops": 13,
+    "cheapest_edge_cost": 0.8898653839613256,
+    "cheapest_edge": [
+     912,
+     2001
+    ]
+   },
+   {
+    "query": 44,
+    "delta": 161,
+    "path_cost": 25.263883962746384,
+    "hops": 17,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1725
+    ]
+   },
+   {
+    "query": 45,
+    "delta": 189,
+    "path_cost": 28.779626119416637,
+    "hops": 16,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1053,
+     2001
+    ]
+   },
+   {
+    "query": 46,
+    "delta": 70,
+    "path_cost": 1e-06,
+    "hops": 1,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     2001
+    ]
+   },
+   {
+    "query": 47,
+    "delta": 96,
+    "path_cost": 8.001353072929065,
+    "hops": 10,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1748
+    ]
+   },
+   {
+    "query": 48,
+    "delta": 117,
+    "path_cost": 8.788234634717393,
+    "hops": 5,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     297,
+     2001
+    ]
+   },
+   {
+    "query": 49,
+    "delta": 145,
+    "path_cost": 16.116297641263703,
+    "hops": 10,
+    "cheapest_edge_cost": 0.16103132013064625,
+    "cheapest_edge": [
+     691,
+     2001
+    ]
+   },
+   {
+    "query": 51,
+    "delta": 75,
+    "path_cost": 18.799672284213095,
+    "hops": 18,
+    "cheapest_edge_cost": 0.17930863067131725,
+    "cheapest_edge": [
+     458,
+     2001
+    ]
+   },
+   {
+    "query": 52,
+    "delta": 190,
+    "path_cost": 28.48235893881474,
+    "hops": 17,
+    "cheapest_edge_cost": 0.054882280781296144,
+    "cheapest_edge": [
+     1882,
+     2001
+    ]
+   },
+   {
+    "query": 53,
+    "delta": 173,
+    "path_cost": 16.305069509726547,
+    "hops": 16,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1152
+    ]
+   },
+   {
+    "query": 54,
+    "delta": 182,
+    "path_cost": 22.346341547936728,
+    "hops": 17,
+    "cheapest_edge_cost": 0.143437400426088,
+    "cheapest_edge": [
+     734,
+     2001
+    ]
+   },
+   {
+    "query": 55,
+    "delta": 175,
+    "path_cost": 27.881194766129973,
+    "hops": 27,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     145
+    ]
+   },
+   {
+    "query": 56,
+    "delta": 158,
+    "path_cost": 36.73936093804026,
+    "hops": 21,
+    "cheapest_edge_cost": 0.029540813476933214,
+    "cheapest_edge": [
+     1516,
+     2001
+    ]
+   },
+   {
+    "query": 57,
+    "delta": 66,
+    "path_cost": 17.44345035913063,
+    "hops": 16,
+    "cheapest_edge_cost": 0.01824336728722169,
+    "cheapest_edge": [
+     186,
+     2001
+    ]
+   },
+   {
+    "query": 58,
+    "delta": 191,
+    "path_cost": 24.478833598980668,
+    "hops": 22,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     127
+    ]
+   },
+   {
+    "query": 59,
+    "delta": 116,
+    "path_cost": 21.6510435090983,
+    "hops": 17,
+    "cheapest_edge_cost": 0.017727429834792204,
+    "cheapest_edge": [
+     1006,
+     2001
+    ]
+   },
+   {
+    "query": 60,
+    "delta": 135,
+    "path_cost": 22.363533991455853,
+    "hops": 15,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1325
+    ]
+   },
+   {
+    "query": 61,
+    "delta": 185,
+    "path_cost": 32.355344396159865,
+    "hops": 21,
+    "cheapest_edge_cost": 0.07048882299639739,
+    "cheapest_edge": [
+     383,
+     2001
+    ]
+   },
+   {
+    "query": 62,
+    "delta": 109,
+    "path_cost": 16.674604173312407,
+    "hops": 13,
+    "cheapest_edge_cost": 0.0850154040309198,
+    "cheapest_edge": [
+     212,
+     2001
+    ]
+   },
+   {
+    "query": 63,
+    "delta": 71,
+    "path_cost": 16.650092098381045,
+    "hops": 17,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1152
+    ]
+   },
+   {
+    "query": 64,
+    "delta": 193,
+    "path_cost": 22.793649749399957,
+    "hops": 17,
+    "cheapest_edge_cost": 0.02503880662777326,
+    "cheapest_edge": [
+     1983,
+     2001
+    ]
+   },
+   {
+    "query": 65,
+    "delta": 71,
+    "path_cost": 15.074716333789441,
+    "hops": 7,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1823
+    ]
+   },
+   {
+    "query": 66,
+    "delta": 103,
+    "path_cost": 0.1040270202878775,
+    "hops": 1,
+    "cheapest_edge_cost": 0.1040270202878775,
+    "cheapest_edge": [
+     2000,
+     2001
+    ]
+   },
+   {
+    "query": 67,
+    "delta": 158,
+    "path_cost": 10.884574577128392,
+    "hops": 8,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1532
+    ]
+   },
+   {
+    "query": 68,
+    "delta": 74,
+    "path_cost": 19.546493391997213,
+    "hops": 12,
+    "cheapest_edge_cost": 0.006876903148829909,
+    "cheapest_edge": [
+     1448,
+     2001
+    ]
+   },
+   {
+    "query": 69,
+    "delta": 189,
+    "path_cost": 20.22546684211337,
+    "hops": 15,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     792
+    ]
+   },
+   {
+    "query": 70,
+    "delta": 75,
+    "path_cost": 17.608883445493912,
+    "hops": 10,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     358,
+     2001
+    ]
+   },
+   {
+    "query": 71,
+    "delta": 78,
+    "path_cost": 1.3803205045846378,
+    "hops": 1,
+    "cheapest_edge_cost": 1.3803205045846378,
+    "cheapest_edge": [
+     2000,
+     2001
+    ]
+   },
+   {
+    "query": 72,
+    "delta": 121,
+    "path_cost": 24.56128928878133,
+    "hops": 15,
+    "cheapest_edge_cost": 0.06170317756193469,
+    "cheapest_edge": [
+     44,
+     2001
+    ]
+   },
+   {
+    "query": 73,
+    "delta": 93,
+    "path_cost": 0.8872856966991781,
+    "hops": 1,
+    "cheapest_edge_cost": 0.8872856966991781,
+    "cheapest_edge": [
+     2000,
+     2001
+    ]
+   },
+   {
+    "query": 74,
+    "delta": 123,
+    "path_cost": 10.570523463116166,
+    "hops": 11,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1187
+    ]
+   },
+   {
+    "query": 75,
+    "delta": 174,
+    "path_cost": 31.536673211696336,
+    "hops": 23,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1799,
+     2001
+    ]
+   },
+   {
+    "query": 76,
+    "delta": 121,
+    "path_cost": 8.580304925966974,
+    "hops": 4,
+    "cheapest_edge_cost": 0.10805269014696549,
+    "cheapest_edge": [
+     1937,
+     2001
+    ]
+   },
+   {
+    "query": 77,
+    "delta": 106,
+    "path_cost": 13.277617524583636,
+    "hops": 5,
+    "cheapest_edge_cost": 0.3948188725881037,
+    "cheapest_edge": [
+     1426,
+     2001
+    ]
+   },
+   {
+    "query": 78,
+    "delta": 184,
+    "path_cost": 19.074830479752645,
+    "hops": 14,
+    "cheapest_edge_cost": 0.13110921077329912,
+    "cheapest_edge": [
+     1369,
+     2001
+    ]
+   },
+   {
+    "query": 80,
+    "delta": 174,
+    "path_cost": 21.440984127975547,
+    "hops": 15,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1724,
+     2001
+    ]
+   },
+   {
+    "query": 81,
+    "delta": 153,
+    "path_cost": 25.540483069765173,
+    "hops": 18,
+    "cheapest_edge_cost": 0.4163615241105982,
+    "cheapest_edge": [
+     1816,
+     2001
+    ]
+   },
+   {
+    "query": 82,
+    "delta": 128,
+    "path_cost": 18.873685011343664,
+    "hops": 13,
+    "cheapest_edge_cost": 0.030788793762086125,
+    "cheapest_edge": [
+     1222,
+     2001
+    ]
+   },
+   {
+    "query": 83,
+    "delta": 175,
+    "path_cost": 34.097146476063706,
+    "hops": 19,
+    "cheapest_edge_cost": 0.07748339609051823,
+    "cheapest_edge": [
+     1166,
+     2001
+    ]
+   },
+   {
+    "query": 84,
+    "delta": 156,
+    "path_cost": 19.1614329094385,
+    "hops": 18,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     671
+    ]
+   },
+   {
+    "query": 85,
+    "delta": 159,
+    "path_cost": 36.80706441851688,
+    "hops": 20,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     758
+    ]
+   },
+   {
+    "query": 86,
+    "delta": 148,
+    "path_cost": 10.06952897224915,
+    "hops": 11,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     628
+    ]
+   },
+   {
+    "query": 87,
+    "delta": 175,
+    "path_cost": 32.54655521680835,
+    "hops": 20,
+    "cheapest_edge_cost": 0.182757265221767,
+    "cheapest_edge": [
+     570,
+     2001
+    ]
+   },
+   {
+    "query": 88,
+    "delta": 187,
+    "path_cost": 30.391405182306404,
+    "hops": 24,
+    "cheapest_edge_cost": 0.08548834669564682,
+    "cheapest_edge": [
+     694,
+     2001
+    ]
+   },
+   {
+    "query": 89,
+    "delta": 117,
+    "path_cost": 5.877369930877304,
+    "hops": 6,
+    "cheapest_edge_cost": 0.4699466068892399,
+    "cheapest_edge": [
+     422,
+     2001
+    ]
+   },
+   {
+    "query": 90,
+    "delta": 81,
+    "path_cost": 17.398173461283836,
+    "hops": 19,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1862
+    ]
+   },
+   {
+    "query": 91,
+    "delta": 133,
+    "path_cost": 8.142596129622644,
+    "hops": 8,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1532
+    ]
+   },
+   {
+    "query": 92,
+    "delta": 150,
+    "path_cost": 22.81923431491447,
+    "hops": 15,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1846,
+     2001
+    ]
+   },
+   {
+    "query": 93,
+    "delta": 178,
+    "path_cost": 25.728510085746674,
+    "hops": 20,
+    "cheapest_edge_cost": 0.01716397182753368,
+    "cheapest_edge": [
+     779,
+     2001
+    ]
+   },
+   {
+    "query": 94,
+    "delta": 120,
+    "path_cost": 24.078971356244647,
+    "hops": 11,
+    "cheapest_edge_cost": 0.3729729946681287,
+    "cheapest_edge": [
+     393,
+     2001
+    ]
+   },
+   {
+    "query": 95,
+    "delta": 82,
+    "path_cost": 1e-06,
+    "hops": 1,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     2001
+    ]
+   },
+   {
+    "query": 96,
+    "delta": 177,
+    "path_cost": 29.30232183048995,
+    "hops": 23,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1192
+    ]
+   },
+   {
+    "query": 97,
+    "delta": 69,
+    "path_cost": 1.4528885291012708,
+    "hops": 3,
+    "cheapest_edge_cost": 0.08827735068739834,
+    "cheapest_edge": [
+     667,
+     2001
+    ]
+   },
+   {
+    "query": 100,
+    "delta": 76,
+    "path_cost": 7.598080246625887,
+    "hops": 9,
+    "cheapest_edge_cost": 0.18033723243034164,
+    "cheapest_edge": [
+     2000,
+     85
+    ]
+   },
+   {
+    "query": 101,
+    "delta": 111,
+    "path_cost": 13.936198176355168,
+    "hops": 10,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1971,
+     2001
+    ]
+   },
+   {
+    "query": 102,
+    "delta": 75,
+    "path_cost": 8.587127133466561,
+    "hops": 9,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1644
+    ]
+   },
+   {
+    "query": 103,
+    "delta": 114,
+    "path_cost": 25.087887512748875,
+    "hops": 21,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     695
+    ]
+   },
+   {
+    "query": 105,
+    "delta": 97,
+    "path_cost": 17.558757708503105,
+    "hops": 15,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     890,
+     2001
+    ]
+   },
+   {
+    "query": 106,
+    "delta": 192,
+    "path_cost": 30.657836465730853,
+    "hops": 20,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     400
+    ]
+   },
+   {
+    "query": 107,
+    "delta": 143,
+    "path_cost": 30.53883478337275,
+    "hops": 16,
+    "cheapest_edge_cost": 0.5436034668742394,
+    "cheapest_edge": [
+     1861,
+     2001
+    ]
+   },
+   {
+    "query": 108,
+    "delta": 193,
+    "path_cost": 42.6204192182568,
+    "hops": 21,
+    "cheapest_edge_cost": 0.1233158397813379,
+    "cheapest_edge": [
+     1852,
+     2001
+    ]
+   },
+   {
+    "query": 109,
+    "delta": 190,
+    "path_cost": 22.683290730680945,
+    "hops": 18,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     190
+    ]
+   },
+   {
+    "query": 110,
+    "delta": 121,
+    "path_cost": 18.919934603727445,
+    "hops": 7,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     76,
+     2001
+    ]
+   },
+   {
+    "query": 111,
+    "delta": 103,
+    "path_cost": 29.097743680337555,
+    "hops": 24,
+    "cheapest_edge_cost": 0.217184775753619,
+    "cheapest_edge": [
+     555,
+     2001
+    ]
+   },
+   {
+    "query": 112,
+    "delta": 142,
+    "path_cost": 24.145596884427476,
+    "hops": 15,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1686,
+     2001
+    ]
+   },
+   {
+    "query": 113,
+    "delta": 189,
+    "path_cost": 22.421330434486556,
+    "hops": 19,
+    "cheapest_edge_cost": 0.11067197787147047,
+    "cheapest_edge": [
+     648,
+     2001
+    ]
+   },
+   {
+    "query": 114,
+    "delta": 123,
+    "path_cost": 12.046728920906428,
+    "hops": 13,
+    "cheapest_edge_cost": 0.07972591370173587,
+    "cheapest_edge": [
+     388,
+     2001
+    ]
+   },
+   {
+    "query": 116,
+    "delta": 115,
+    "path_cost": 0.908500230104996,
+    "hops": 1,
+    "cheapest_edge_cost": 0.908500230104996,
+    "cheapest_edge": [
+     2000,
+     2001
+    ]
+   },
+   {
+    "query": 117,
+    "delta": 149,
+    "path_cost": 16.633613979982286,
+    "hops": 12,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1226,
+     2001
+    ]
+   },
+   {
+    "query": 118,
+    "delta": 71,
+    "path_cost": 19.467275568455186,
+    "hops": 15,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     626,
+     2001
+    ]
+   },
+   {
+    "query": 120,
+    "delta": 199,
+    "path_cost": 22.751453507643394,
+    "hops": 20,
+    "cheapest_edge_cost": 0.06146444334600789,
+    "cheapest_edge": [
+     488,
+     2001
+    ]
+   },
+   {
+    "query": 121,
+    "delta": 83,
+    "path_cost": 6.997620668338343,
+    "hops": 6,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     664,
+     2001
+    ]
+   },
+   {
+    "query": 123,
+    "delta": 73,
+    "path_cost": 1.0132185028931606,
+    "hops": 3,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     542
+    ]
+   },
+   {
+    "query": 124,
+    "delta": 183,
+    "path_cost": 31.626430552659176,
+    "hops": 17,
+    "cheapest_edge_cost": 0.6983473650242921,
+    "cheapest_edge": [
+     441,
+     2001
+    ]
+   },
+   {
+    "query": 125,
+    "delta": 123,
+    "path_cost": 17.14351381576423,
+    "hops": 14,
+    "cheapest_edge_cost": 0.250989993305567,
+    "cheapest_edge": [
+     1521,
+     2001
+    ]
+   },
+   {
+    "query": 126,
+    "delta": 176,
+    "path_cost": 34.43696304623654,
+    "hops": 18,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1745
+    ]
+   },
+   {
+    "query": 127,
+    "delta": 122,
+    "path_cost": 18.855221367110556,
+    "hops": 12,
+    "cheapest_edge_cost": 0.00893839007498458,
+    "cheapest_edge": [
+     411,
+     2001
+    ]
+   },
+   {
+    "query": 128,
+    "delta": 144,
+    "path_cost": 15.815390979065644,
+    "hops": 9,
+    "cheapest_edge_cost": 0.5225891986637725,
+    "cheapest_edge": [
+     373,
+     2001
+    ]
+   },
+   {
+    "query": 129,
+    "delta": 140,
+    "path_cost": 15.512957225286856,
+    "hops": 15,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1431
+    ]
+   },
+   {
+    "query": 130,
+    "delta": 196,
+    "path_cost": 18.44106144051097,
+    "hops": 18,
+    "cheapest_edge_cost": 0.06611014330143658,
+    "cheapest_edge": [
+     1679,
+     2001
+    ]
+   },
+   {
+    "query": 131,
+    "delta": 199,
+    "path_cost": 33.87046259197475,
+    "hops": 23,
+    "cheapest_edge_cost": 0.07107604128107042,
+    "cheapest_edge": [
+     608,
+     2001
+    ]
+   },
+   {
+    "query": 132,
+    "delta": 98,
+    "path_cost": 1.0664077082864234,
+    "hops": 3,
+    "cheapest_edge_cost": 0.015653492838368532,
+    "cheapest_edge": [
+     2000,
+     169
+    ]
+   },
+   {
+    "query": 134,
+    "delta": 122,
+    "path_cost": 8.084103330513134,
+    "hops": 10,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     783
+    ]
+   },
+   {
+    "query": 135,
+    "delta": 85,
+    "path_cost": 25.439299974497978,
+    "hops": 12,
+    "cheapest_edge_cost": 0.01770480099915933,
+    "cheapest_edge": [
+     1661,
+     2001
+    ]
+   },
+   {
+    "query": 136,
+    "delta": 122,
+    "path_cost": 9.188158783499347,
+    "hops": 8,
+    "cheapest_edge_cost": 0.20049940379972056,
+    "cheapest_edge": [
+     572,
+     2001
+    ]
+   },
+   {
+    "query": 137,
+    "delta": 199,
+    "path_cost": 24.761740387644068,
+    "hops": 19,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     818
+    ]
+   },
+   {
+    "query": 138,
+    "delta": 192,
+    "path_cost": 24.474804241341978,
+    "hops": 22,
+    "cheapest_edge_cost": 0.041108823629069,
+    "cheapest_edge": [
+     2000,
+     687
+    ]
+   },
+   {
+    "query": 139,
+    "delta": 104,
+    "path_cost": 13.532385738116036,
+    "hops": 11,
+    "cheapest_edge_cost": 0.01963730356220663,
+    "cheapest_edge": [
+     566,
+     2001
+    ]
+   },
+   {
+    "query": 140,
+    "delta": 120,
+    "path_cost": 34.3995690354817,
+    "hops": 25,
+    "cheapest_edge_cost": 0.0723104442648436,
+    "cheapest_edge": [
+     862,
+     2001
+    ]
+   },
+   {
+    "query": 141,
+    "delta": 105,
+    "path_cost": 29.233877649466415,
+    "hops": 17,
+    "cheapest_edge_cost": 1.0,
+    "cheapest_edge": [
+     1850,
+     1905
+    ]
+   },
+   {
+    "query": 142,
+    "delta": 77,
+    "path_cost": 1e-06,
+    "hops": 1,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     2001
+    ]
+   },
+   {
+    "query": 143,
+    "delta": 97,
+    "path_cost": 25.606718084175068,
+    "hops": 10,
+    "cheapest_edge_cost": 0.36119694860478196,
+    "cheapest_edge": [
+     845,
+     2001
+    ]
+   },
+   {
+    "query": 144,
+    "delta": 165,
+    "path_cost": 16.569888231827637,
+    "hops": 15,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1862
+    ]
+   },
+   {
+    "query": 145,
+    "delta": 120,
+    "path_cost": 9.578662331756789,
+    "hops": 7,
+    "cheapest_edge_cost": 0.154171388608541,
+    "cheapest_edge": [
+     1379,
+     2001
+    ]
+   },
+   {
+    "query": 147,
+    "delta": 112,
+    "path_cost": 16.00208142714106,
+    "hops": 10,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1475,
+     2001
+    ]
+   },
+   {
+    "query": 148,
+    "delta": 88,
+    "path_cost": 16.57691923108292,
+    "hops": 10,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1833
+    ]
+   },
+   {
+    "query": 149,
+    "delta": 81,
+    "path_cost": 19.513741669540718,
+    "hops": 17,
+    "cheapest_edge_cost": 0.08538199116817233,
+    "cheapest_edge": [
+     1037,
+     2001
+    ]
+   },
+   {
+    "query": 150,
+    "delta": 177,
+    "path_cost": 23.551504774582654,
+    "hops": 17,
+    "cheapest_edge_cost": 0.27485662624755747,
+    "cheapest_edge": [
+     573,
+     2001
+    ]
+   },
+   {
+    "query": 151,
+    "delta": 129,
+    "path_cost": 16.982352104142155,
+    "hops": 14,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1803,
+     2001
+    ]
+   },
+   {
+    "query": 152,
+    "delta": 193,
+    "path_cost": 35.18605534660322,
+    "hops": 22,
+    "cheapest_edge_cost": 0.38223723997622666,
+    "cheapest_edge": [
+     524,
+     2001
+    ]
+   },
+   {
+    "query": 153,
+    "delta": 114,
+    "path_cost": 28.957547665453806,
+    "hops": 15,
+    "cheapest_edge_cost": 0.042223144407376526,
+    "cheapest_edge": [
+     614,
+     2001
+    ]
+   },
+   {
+    "query": 154,
+    "delta": 71,
+    "path_cost": 5.378666894387413,
+    "hops": 6,
+    "cheapest_edge_cost": 0.07791447540932445,
+    "cheapest_edge": [
+     1517,
+     2001
+    ]
+   },
+   {
+    "query": 155,
+    "delta": 104,
+    "path_cost": 19.75243793714789,
+    "hops": 17,
+    "cheapest_edge_cost": 0.15083476679447397,
+    "cheapest_edge": [
+     1213,
+     2001
+    ]
+   },
+   {
+    "query": 156,
+    "delta": 82,
+    "path_cost": 8.794737021513855,
+    "hops": 10,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1325
+    ]
+   },
+   {
+    "query": 157,
+    "delta": 152,
+    "path_cost": 10.108784998250854,
+    "hops": 11,
+    "cheapest_edge_cost": 0.020903386915865838,
+    "cheapest_edge": [
+     384,
+     2001
+    ]
+   },
+   {
+    "query": 158,
+    "delta": 100,
+    "path_cost": 16.109764982989198,
+    "hops": 15,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1910
+    ]
+   },
+   {
+    "query": 159,
+    "delta": 169,
+    "path_cost": 22.803858863702185,
+    "hops": 18,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1556,
+     2001
+    ]
+   },
+   {
+    "query": 160,
+    "delta": 93,
+    "path_cost": 11.893929273126544,
+    "hops": 6,
+    "cheapest_edge_cost": 0.024557943870574722,
+    "cheapest_edge": [
+     1385,
+     2001
+    ]
+   },
+   {
+    "query": 161,
+    "delta": 121,
+    "path_cost": 9.874800937441366,
+    "hops": 4,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     61
+    ]
+   },
+   {
+    "query": 162,
+    "delta": 104,
+    "path_cost": 0.2565329265938391,
+    "hops": 1,
+    "cheapest_edge_cost": 0.2565329265938391,
+    "cheapest_edge": [
+     2000,
+     2001
+    ]
+   },
+   {
+    "query": 163,
+    "delta": 176,
+    "path_cost": 29.2656149367633,
+    "hops": 22,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1349
+    ]
+   },
+   {
+    "query": 164,
+    "delta": 112,
+    "path_cost": 27.648603800203325,
+    "hops": 22,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     846
+    ]
+   },
+   {
+    "query": 165,
+    "delta": 116,
+    "path_cost": 14.596361490738344,
+    "hops": 11,
+    "cheapest_edge_cost": 0.24682176178199192,
+    "cheapest_edge": [
+     976,
+     2001
+    ]
+   },
+   {
+    "query": 166,
+    "delta": 197,
+    "path_cost": 21.352952111549055,
+    "hops": 18,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1116,
+     2001
+    ]
+   },
+   {
+    "query": 167,
+    "delta": 92,
+    "path_cost": 20.675344723495428,
+    "hops": 18,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     273,
+     2001
+    ]
+   },
+   {
+    "query": 168,
+    "delta": 122,
+    "path_cost": 7.8140476279296145,
+    "hops": 6,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1225,
+     2001
+    ]
+   },
+   {
+    "query": 169,
+    "delta": 192,
+    "path_cost": 28.617599441577802,
+    "hops": 23,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     955
+    ]
+   },
+   {
+    "query": 170,
+    "delta": 74,
+    "path_cost": 1.0737337250126666,
+    "hops": 1,
+    "cheapest_edge_cost": 1.0737337250126666,
+    "cheapest_edge": [
+     2000,
+     2001
+    ]
+   },
+   {
+    "query": 171,
+    "delta": 113,
+    "path_cost": 13.667233138176263,
+    "hops": 12,
+    "cheapest_edge_cost": 0.21044477706036796,
+    "cheapest_edge": [
+     1556,
+     2001
+    ]
+   },
+   {
+    "query": 173,
+    "delta": 74,
+    "path_cost": 2.6124549158839026,
+    "hops": 3,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     977,
+     2001
+    ]
+   },
+   {
+    "query": 174,
+    "delta": 181,
+    "path_cost": 31.440562679881168,
+    "hops": 16,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1200,
+     2001
+    ]
+   },
+   {
+    "query": 175,
+    "delta": 177,
+    "path_cost": 22.4134166831104,
+    "hops": 20,
+    "cheapest_edge_cost": 0.32836477098504746,
+    "cheapest_edge": [
+     764,
+     2001
+    ]
+   },
+   {
+    "query": 177,
+    "delta": 108,
+    "path_cost": 12.278508403994918,
+    "hops": 9,
+    "cheapest_edge_cost": 0.0016038528871406433,
+    "cheapest_edge": [
+     2000,
+     1224
+    ]
+   },
+   {
+    "query": 178,
+    "delta": 72,
+    "path_cost": 12.466469953179496,
+    "hops": 8,
+    "cheapest_edge_cost": 0.05570766756100516,
+    "cheapest_edge": [
+     372,
+     2001
+    ]
+   },
+   {
+    "query": 179,
+    "delta": 85,
+    "path_cost": 3.287389157164709,
+    "hops": 3,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     592,
+     2001
+    ]
+   },
+   {
+    "query": 180,
+    "delta": 85,
+    "path_cost": 6.969942993198014,
+    "hops": 6,
+    "cheapest_edge_cost": 0.0813008806617838,
+    "cheapest_edge": [
+     1717,
+     2001
+    ]
+   },
+   {
+    "query": 181,
+    "delta": 191,
+    "path_cost": 30.269087711378692,
+    "hops": 23,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     732,
+     2001
+    ]
+   },
+   {
+    "query": 182,
+    "delta": 89,
+    "path_cost": 9.42657249631192,
+    "hops": 8,
+    "cheapest_edge_cost": 0.1358795670771359,
+    "cheapest_edge": [
+     2000,
+     1438
+    ]
+   },
+   {
+    "query": 183,
+    "delta": 119,
+    "path_cost": 17.833217737353145,
+    "hops": 13,
+    "cheapest_edge_cost": 0.04131799098206163,
+    "cheapest_edge": [
+     845,
+     2001
+    ]
+   },
+   {
+    "query": 184,
+    "delta": 181,
+    "path_cost": 34.790290470371914,
+    "hops": 19,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     531,
+     2001
+    ]
+   },
+   {
+    "query": 185,
+    "delta": 86,
+    "path_cost": 13.48821865828864,
+    "hops": 14,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     216,
+     2001
+    ]
+   },
+   {
+    "query": 186,
+    "delta": 140,
+    "path_cost": 28.846851514292222,
+    "hops": 17,
+    "cheapest_edge_cost": 0.9791067230466843,
+    "cheapest_edge": [
+     1567,
+     2001
+    ]
+   },
+   {
+    "query": 187,
+    "delta": 169,
+    "path_cost": 12.895303061556834,
+    "hops": 13,
+    "cheapest_edge_cost": 0.11483681506970063,
+    "cheapest_edge": [
+     566,
+     2001
+    ]
+   },
+   {
+    "query": 188,
+    "delta": 90,
+    "path_cost": 8.600213326227163,
+    "hops": 10,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1642
+    ]
+   },
+   {
+    "query": 189,
+    "delta": 198,
+    "path_cost": 41.931065446325505,
+    "hops": 28,
+    "cheapest_edge_cost": 0.5244055528593189,
+    "cheapest_edge": [
+     2000,
+     1643
+    ]
+   },
+   {
+    "query": 190,
+    "delta": 143,
+    "path_cost": 18.739221618424263,
+    "hops": 13,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1156
+    ]
+   },
+   {
+    "query": 191,
+    "delta": 155,
+    "path_cost": 15.411299317392682,
+    "hops": 17,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     123
+    ]
+   },
+   {
+    "query": 192,
+    "delta": 86,
+    "path_cost": 0.1804208379426729,
+    "hops": 1,
+    "cheapest_edge_cost": 0.1804208379426729,
+    "cheapest_edge": [
+     2000,
+     2001
+    ]
+   },
+   {
+    "query": 193,
+    "delta": 111,
+    "path_cost": 5.587486866622607,
+    "hops": 6,
+    "cheapest_edge_cost": 0.02074837939178066,
+    "cheapest_edge": [
+     1799,
+     2001
+    ]
+   },
+   {
+    "query": 194,
+    "delta": 99,
+    "path_cost": 18.42697186274749,
+    "hops": 14,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     947
+    ]
+   },
+   {
+    "query": 195,
+    "delta": 98,
+    "path_cost": 0.3938277295873839,
+    "hops": 1,
+    "cheapest_edge_cost": 0.3938277295873839,
+    "cheapest_edge": [
+     2000,
+     2001
+    ]
+   },
+   {
+    "query": 196,
+    "delta": 138,
+    "path_cost": 19.817761662866594,
+    "hops": 13,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     849
+    ]
+   },
+   {
+    "query": 197,
+    "delta": 142,
+    "path_cost": 8.075235103947968,
+    "hops": 7,
+    "cheapest_edge_cost": 0.04118900661895426,
+    "cheapest_edge": [
+     229,
+     2001
+    ]
+   },
+   {
+    "query": 198,
+    "delta": 157,
+    "path_cost": 21.125848793217614,
+    "hops": 14,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     771
+    ]
+   },
+   {
+    "query": 199,
+    "delta": 180,
+    "path_cost": 33.25089950057372,
+    "hops": 21,
+    "cheapest_edge_cost": 0.00397814930425896,
+    "cheapest_edge": [
+     1354,
+     2001
+    ]
+   },
+   {
+    "query": 200,
+    "delta": 135,
+    "path_cost": 10.74621627603179,
+    "hops": 10,
+    "cheapest_edge_cost": 0.09649727523103922,
+    "cheapest_edge": [
+     837,
+     2001
+    ]
+   },
+   {
+    "query": 201,
+    "delta": 69,
+    "path_cost": 10.101629831367417,
+    "hops": 8,
+    "cheapest_edge_cost": 0.38264342757583675,
+    "cheapest_edge": [
+     438,
+     2001
+    ]
+   },
+   {
+    "query": 203,
+    "delta": 185,
+    "path_cost": 36.45245618656406,
+    "hops": 23,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1858,
+     2001
+    ]
+   },
+   {
+    "query": 204,
+    "delta": 95,
+    "path_cost": 21.448030832077837,
+    "hops": 16,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     874
+    ]
+   },
+   {
+    "query": 205,
+    "delta": 116,
+    "path_cost": 7.089070696374061,
+    "hops": 7,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     989
+    ]
+   },
+   {
+    "query": 206,
+    "delta": 105,
+    "path_cost": 7.286561132898952,
+    "hops": 8,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     480,
+     2001
+    ]
+   },
+   {
+    "query": 208,
+    "delta": 114,
+    "path_cost": 16.512700334627855,
+    "hops": 15,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     596
+    ]
+   },
+   {
+    "query": 209,
+    "delta": 96,
+    "path_cost": 18.38752985648385,
+    "hops": 16,
+    "cheapest_edge_cost": 0.6889631868873399,
+    "cheapest_edge": [
+     1594,
+     2001
+    ]
+   },
+   {
+    "query": 210,
+    "delta": 145,
+    "path_cost": 23.77149226992955,
+    "hops": 16,
+    "cheapest_edge_cost": 0.12869245112770836,
+    "cheapest_edge": [
+     1648,
+     2001
+    ]
+   },
+   {
+    "query": 211,
+    "delta": 101,
+    "path_cost": 15.921477434636703,
+    "hops": 6,
+    "cheapest_edge_cost": 0.36498444996883395,
+    "cheapest_edge": [
+     975,
+     2001
+    ]
+   },
+   {
+    "query": 212,
+    "delta": 98,
+    "path_cost": 13.941867068171165,
+    "hops": 4,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     773,
+     2001
+    ]
+   },
+   {
+    "query": 213,
+    "delta": 132,
+    "path_cost": 18.62757143702698,
+    "hops": 17,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1007
+    ]
+   },
+   {
+    "query": 214,
+    "delta": 128,
+    "path_cost": 24.088471717170155,
+    "hops": 21,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     113
+    ]
+   },
+   {
+    "query": 216,
+    "delta": 102,
+    "path_cost": 30.29833769973746,
+    "hops": 27,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1465
+    ]
+   },
+   {
+    "query": 217,
+    "delta": 110,
+    "path_cost": 30.164101923981022,
+    "hops": 3,
+    "cheapest_edge_cost": 0.775711394006847,
+    "cheapest_edge": [
+     1458,
+     2001
+    ]
+   },
+   {
+    "query": 218,
+    "delta": 96,
+    "path_cost": 0.46888757738162146,
+    "hops": 1,
+    "cheapest_edge_cost": 0.46888757738162146,
+    "cheapest_edge": [
+     2000,
+     2001
+    ]
+   },
+   {
+    "query": 219,
+    "delta": 132,
+    "path_cost": 19.794890141299756,
+    "hops": 14,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1725
+    ]
+   },
+   {
+    "query": 220,
+    "delta": 178,
+    "path_cost": 34.115953805073715,
+    "hops": 18,
+    "cheapest_edge_cost": 1.0,
+    "cheapest_edge": [
+     1349,
+     1725
+    ]
+   },
+   {
+    "query": 221,
+    "delta": 76,
+    "path_cost": 1e-06,
+    "hops": 1,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     2001
+    ]
+   },
+   {
+    "query": 222,
+    "delta": 152,
+    "path_cost": 19.772604124110437,
+    "hops": 20,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     874
+    ]
+   },
+   {
+    "query": 223,
+    "delta": 156,
+    "path_cost": 43.09020032677349,
+    "hops": 23,
+    "cheapest_edge_cost": 0.2983447835541576,
+    "cheapest_edge": [
+     2000,
+     1483
+    ]
+   },
+   {
+    "query": 224,
+    "delta": 134,
+    "path_cost": 11.101859370091931,
+    "hops": 11,
+    "cheapest_edge_cost": 0.1314169629379062,
+    "cheapest_edge": [
+     1571,
+     2001
+    ]
+   },
+   {
+    "query": 225,
+    "delta": 175,
+    "path_cost": 28.63037296835917,
+    "hops": 23,
+    "cheapest_edge_cost": 0.02103237127897321,
+    "cheapest_edge": [
+     1164,
+     2001
+    ]
+   },
+   {
+    "query": 228,
+    "delta": 134,
+    "path_cost": 10.56384539928627,
+    "hops": 10,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     879
+    ]
+   },
+   {
+    "query": 229,
+    "delta": 135,
+    "path_cost": 10.319843470599116,
+    "hops": 10,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1845
+    ]
+   },
+   {
+    "query": 230,
+    "delta": 118,
+    "path_cost": 15.947210998660822,
+    "hops": 14,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1318
+    ]
+   },
+   {
+    "query": 231,
+    "delta": 105,
+    "path_cost": 10.479440815429374,
+    "hops": 7,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1515
+    ]
+   },
+   {
+    "query": 232,
+    "delta": 117,
+    "path_cost": 19.946385050929674,
+    "hops": 6,
+    "cheapest_edge_cost": 0.3393284418491741,
+    "cheapest_edge": [
+     1265,
+     2001
+    ]
+   },
+   {
+    "query": 233,
+    "delta": 188,
+    "path_cost": 20.38725876180778,
+    "hops": 13,
+    "cheapest_edge_cost": 0.023289597633352227,
+    "cheapest_edge": [
+     1069,
+     2001
+    ]
+   },
+   {
+    "query": 234,
+    "delta": 181,
+    "path_cost": 21.939858642021658,
+    "hops": 17,
+    "cheapest_edge_cost": 0.04260557172957207,
+    "cheapest_edge": [
+     1176,
+     2001
+    ]
+   },
+   {
+    "query": 235,
+    "delta": 135,
+    "path_cost": 24.596982620175602,
+    "hops": 19,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1783
+    ]
+   },
+   {
+    "query": 236,
+    "delta": 184,
+    "path_cost": 30.683483503204695,
+    "hops": 23,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     395,
+     2001
+    ]
+   },
+   {
+    "query": 237,
+    "delta": 129,
+    "path_cost": 18.952097875083748,
+    "hops": 11,
+    "cheapest_edge_cost": 0.03008729985746708,
+    "cheapest_edge": [
+     9,
+     2001
+    ]
+   },
+   {
+    "query": 238,
+    "delta": 104,
+    "path_cost": 13.913937098853191,
+    "hops": 7,
+    "cheapest_edge_cost": 0.18946218921978708,
+    "cheapest_edge": [
+     261,
+     2001
+    ]
+   },
+   {
+    "query": 239,
+    "delta": 197,
+    "path_cost": 18.86554424272609,
+    "hops": 13,
+    "cheapest_edge_cost": 0.21634524595163943,
+    "cheapest_edge": [
+     812,
+     2001
+    ]
+   },
+   {
+    "query": 240,
+    "delta": 88,
+    "path_cost": 20.27722828708806,
+    "hops": 15,
+    "cheapest_edge_cost": 0.10556804399447611,
+    "cheapest_edge": [
+     4,
+     2001
+    ]
+   },
+   {
+    "query": 241,
+    "delta": 194,
+    "path_cost": 18.41866470163537,
+    "hops": 15,
+    "cheapest_edge_cost": 0.05919363969024915,
+    "cheapest_edge": [
+     298,
+     2001
+    ]
+   },
+   {
+    "query": 242,
+    "delta": 172,
+    "path_cost": 34.55578422364208,
+    "hops": 16,
+    "cheapest_edge_cost": 0.0391874861072267,
+    "cheapest_edge": [
+     1585,
+     2001
+    ]
+   },
+   {
+    "query": 243,
+    "delta": 106,
+    "path_cost": 1e-06,
+    "hops": 1,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     2001
+    ]
+   },
+   {
+    "query": 244,
+    "delta": 101,
+    "path_cost": 6.270600143051055,
+    "hops": 7,
+    "cheapest_edge_cost": 0.04042754629990811,
+    "cheapest_edge": [
+     1873,
+     2001
+    ]
+   },
+   {
+    "query": 245,
+    "delta": 130,
+    "path_cost": 14.871235919156224,
+    "hops": 9,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1299,
+     2001
+    ]
+   },
+   {
+    "query": 246,
+    "delta": 170,
+    "path_cost": 16.207867685309413,
+    "hops": 13,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     335
+    ]
+   },
+   {
+    "query": 247,
+    "delta": 97,
+    "path_cost": 1.5856620848033052,
+    "hops": 3,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1236,
+     2001
+    ]
+   },
+   {
+    "query": 248,
+    "delta": 196,
+    "path_cost": 29.57591151366152,
+    "hops": 24,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     122,
+     2001
+    ]
+   },
+   {
+    "query": 249,
+    "delta": 158,
+    "path_cost": 11.641160488222734,
+    "hops": 9,
+    "cheapest_edge_cost": 0.702046048208485,
+    "cheapest_edge": [
+     1695,
+     2001
+    ]
+   },
+   {
+    "query": 250,
+    "delta": 183,
+    "path_cost": 19.211876236970983,
+    "hops": 17,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1046
+    ]
+   },
+   {
+    "query": 251,
+    "delta": 102,
+    "path_cost": 3.2813704779126653,
+    "hops": 4,
+    "cheapest_edge_cost": 0.3951379391705272,
+    "cheapest_edge": [
+     1053,
+     2001
+    ]
+   },
+   {
+    "query": 252,
+    "delta": 164,
+    "path_cost": 18.049029498041193,
+    "hops": 10,
+    "cheapest_edge_cost": 0.12721931392800837,
+    "cheapest_edge": [
+     669,
+     2001
+    ]
+   },
+   {
+    "query": 253,
+    "delta": 67,
+    "path_cost": 15.852300972242858,
+    "hops": 10,
+    "cheapest_edge_cost": 0.1910767566421925,
+    "cheapest_edge": [
+     60,
+     2001
+    ]
+   },
+   {
+    "query": 254,
+    "delta": 147,
+    "path_cost": 19.44075061565605,
+    "hops": 16,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     658
+    ]
+   },
+   {
+    "query": 255,
+    "delta": 106,
+    "path_cost": 13.137809913124562,
+    "hops": 15,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     515
+    ]
+   },
+   {
+    "query": 256,
+    "delta": 183,
+    "path_cost": 27.8102712514658,
+    "hops": 19,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1845
+    ]
+   },
+   {
+    "query": 257,
+    "delta": 60,
+    "path_cost": 16.50308272017594,
+    "hops": 16,
+    "cheapest_edge_cost": 0.0012830549803838625,
+    "cheapest_edge": [
+     1589,
+     2001
+    ]
+   },
+   {
+    "query": 258,
+    "delta": 184,
+    "path_cost": 22.979052626857104,
+    "hops": 17,
+    "cheapest_edge_cost": 0.07421013501622324,
+    "cheapest_edge": [
+     316,
+     2001
+    ]
+   },
+   {
+    "query": 259,
+    "delta": 108,
+    "path_cost": 21.09720338460398,
+    "hops": 16,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     77
+    ]
+   },
+   {
+    "query": 260,
+    "delta": 105,
+    "path_cost": 1.0813957238989271,
+    "hops": 3,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1569,
+     2001
+    ]
+   },
+   {
+    "query": 261,
+    "delta": 101,
+    "path_cost": 13.31512534184639,
+    "hops": 5,
+    "cheapest_edge_cost": 1.0,
+    "cheapest_edge": [
+     297,
+     1567
+    ]
+   },
+   {
+    "query": 262,
+    "delta": 156,
+    "path_cost": 27.163517104475947,
+    "hops": 16,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1040,
+     2001
+    ]
+   },
+   {
+    "query": 263,
+    "delta": 177,
+    "path_cost": 19.0467583153816,
+    "hops": 16,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1229,
+     2001
+    ]
+   },
+   {
+    "query": 264,
+    "delta": 106,
+    "path_cost": 17.98097044235152,
+    "hops": 10,
+    "cheapest_edge_cost": 0.3630298842910446,
+    "cheapest_edge": [
+     107,
+     2001
+    ]
+   },
+   {
+    "query": 265,
+    "delta": 68,
+    "path_cost": 5.217958066131592,
+    "hops": 4,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1283
+    ]
+   },
+   {
+    "query": 266,
+    "delta": 150,
+    "path_cost": 32.99465117804206,
+    "hops": 21,
+    "cheapest_edge_cost": 0.08928999108196937,
+    "cheapest_edge": [
+     1065,
+     2001
+    ]
+   },
+   {
+    "query": 267,
+    "delta": 111,
+    "path_cost": 4.042949266250849,
+    "hops": 6,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     241
+    ]
+   },
+   {
+    "query": 268,
+    "delta": 149,
+    "path_cost": 24.57758762944185,
+    "hops": 20,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1273
+    ]
+   },
+   {
+    "query": 269,
+    "delta": 131,
+    "path_cost": 10.398186106466705,
+    "hops": 8,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     119,
+     2001
+    ]
+   },
+   {
+    "query": 270,
+    "delta": 118,
+    "path_cost": 18.77219554111204,
+    "hops": 15,
+    "cheapest_edge_cost": 0.20188089421510744,
+    "cheapest_edge": [
+     1045,
+     2001
+    ]
+   },
+   {
+    "query": 271,
+    "delta": 159,
+    "path_cost": 22.22166243519974,
+    "hops": 14,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     410
+    ]
+   },
+   {
+    "query": 272,
+    "delta": 149,
+    "path_cost": 28.379526904369953,
+    "hops": 17,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1869,
+     2001
+    ]
+   },
+   {
+    "query": 273,
+    "delta": 124,
+    "path_cost": 26.3685143446258,
+    "hops": 20,
+    "cheapest_edge_cost": 0.08629053891883215,
+    "cheapest_edge": [
+     480,
+     2001
+    ]
+   },
+   {
+    "query": 274,
+    "delta": 172,
+    "path_cost": 26.038054917645884,
+    "hops": 20,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1179,
+     2001
+    ]
+   },
+   {
+    "query": 275,
+    "delta": 157,
+    "path_cost": 23.612138753790514,
+    "hops": 16,
+    "cheapest_edge_cost": 0.15508898789345396,
+    "cheapest_edge": [
+     1984,
+     2001
+    ]
+   },
+   {
+    "query": 276,
+    "delta": 173,
+    "path_cost": 19.84152377564773,
+    "hops": 14,
+    "cheapest_edge_cost": 0.004264404075014795,
+    "cheapest_edge": [
+     911,
+     2001
+    ]
+   },
+   {
+    "query": 277,
+    "delta": 161,
+    "path_cost": 35.71161781315549,
+    "hops": 22,
+    "cheapest_edge_cost": 0.2055218738684366,
+    "cheapest_edge": [
+     111,
+     2001
+    ]
+   },
+   {
+    "query": 278,
+    "delta": 117,
+    "path_cost": 20.75431597859251,
+    "hops": 18,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1425,
+     2001
+    ]
+   },
+   {
+    "query": 279,
+    "delta": 122,
+    "path_cost": 1.134201504249634,
+    "hops": 3,
+    "cheapest_edge_cost": 0.0027924614041994664,
+    "cheapest_edge": [
+     2000,
+     1656
+    ]
+   },
+   {
+    "query": 280,
+    "delta": 194,
+    "path_cost": 38.33443603274245,
+    "hops": 23,
+    "cheapest_edge_cost": 0.0018559416724929156,
+    "cheapest_edge": [
+     2000,
+     184
+    ]
+   },
+   {
+    "query": 281,
+    "delta": 178,
+    "path_cost": 17.939787286784174,
+    "hops": 13,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1184
+    ]
+   },
+   {
+    "query": 282,
+    "delta": 174,
+    "path_cost": 22.757157081970536,
+    "hops": 18,
+    "cheapest_edge_cost": 0.13234474519885397,
+    "cheapest_edge": [
+     1936,
+     2001
+    ]
+   },
+   {
+    "query": 283,
+    "delta": 103,
+    "path_cost": 25.00165725943784,
+    "hops": 22,
+    "cheapest_edge_cost": 0.18805354420164078,
+    "cheapest_edge": [
+     176,
+     2001
+    ]
+   },
+   {
+    "query": 284,
+    "delta": 103,
+    "path_cost": 20.90129470303481,
+    "hops": 15,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     997,
+     2001
+    ]
+   },
+   {
+    "query": 285,
+    "delta": 193,
+    "path_cost": 26.54175967511822,
+    "hops": 15,
+    "cheapest_edge_cost": 0.9958950562027123,
+    "cheapest_edge": [
+     1761,
+     2001
+    ]
+   },
+   {
+    "query": 286,
+    "delta": 76,
+    "path_cost": 15.139451021698871,
+    "hops": 12,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     348,
+     2001
+    ]
+   },
+   {
+    "query": 288,
+    "delta": 139,
+    "path_cost": 30.699241217999514,
+    "hops": 18,
+    "cheapest_edge_cost": 0.09863343731478237,
+    "cheapest_edge": [
+     1556,
+     2001
+    ]
+   },
+   {
+    "query": 289,
+    "delta": 183,
+    "path_cost": 20.48884665491993,
+    "hops": 17,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     899,
+     2001
+    ]
+   },
+   {
+    "query": 290,
+    "delta": 196,
+    "path_cost": 34.43853556673512,
+    "hops": 22,
+    "cheapest_edge_cost": 0.05924229168685982,
+    "cheapest_edge": [
+     1366,
+     2001
+    ]
+   },
+   {
+    "query": 291,
+    "delta": 176,
+    "path_cost": 23.957297536994936,
+    "hops": 21,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     127
+    ]
+   },
+   {
+    "query": 292,
+    "delta": 101,
+    "path_cost": 22.741449752310142,
+    "hops": 12,
+    "cheapest_edge_cost": 0.05528224545110716,
+    "cheapest_edge": [
+     1284,
+     2001
+    ]
+   },
+   {
+    "query": 293,
+    "delta": 150,
+    "path_cost": 9.560060138557775,
+    "hops": 11,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1432
+    ]
+   },
+   {
+    "query": 294,
+    "delta": 154,
+    "path_cost": 17.74695089209096,
+    "hops": 17,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1059
+    ]
+   },
+   {
+    "query": 295,
+    "delta": 89,
+    "path_cost": 26.605694952871325,
+    "hops": 18,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1154
+    ]
+   },
+   {
+    "query": 296,
+    "delta": 94,
+    "path_cost": 11.152784664165825,
+    "hops": 10,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1198,
+     2001
+    ]
+   },
+   {
+    "query": 297,
+    "delta": 81,
+    "path_cost": 19.14142128250838,
+    "hops": 14,
+    "cheapest_edge_cost": 0.8793182294517159,
+    "cheapest_edge": [
+     2000,
+     369
+    ]
+   },
+   {
+    "query": 298,
+    "delta": 124,
+    "path_cost": 23.35287819657411,
+    "hops": 16,
+    "cheapest_edge_cost": 0.08181455523065,
+    "cheapest_edge": [
+     812,
+     2001
+    ]
+   },
+   {
+    "query": 300,
+    "delta": 164,
+    "path_cost": 26.511531882247322,
+    "hops": 21,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1792
+    ]
+   },
+   {
+    "query": 301,
+    "delta": 136,
+    "path_cost": 33.16074913150638,
+    "hops": 6,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     652,
+     2001
+    ]
+   },
+   {
+    "query": 302,
+    "delta": 153,
+    "path_cost": 17.64879103723689,
+    "hops": 15,
+    "cheapest_edge_cost": 0.11672858572860875,
+    "cheapest_edge": [
+     1159,
+     2001
+    ]
+   },
+   {
+    "query": 303,
+    "delta": 171,
+    "path_cost": 17.05053388137507,
+    "hops": 15,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     969
+    ]
+   },
+   {
+    "query": 304,
+    "delta": 113,
+    "path_cost": 18.50718203695772,
+    "hops": 17,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     585
+    ]
+   },
+   {
+    "query": 305,
+    "delta": 100,
+    "path_cost": 1.0269440231462794,
+    "hops": 3,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1936
+    ]
+   },
+   {
+    "query": 306,
+    "delta": 97,
+    "path_cost": 14.994612401522682,
+    "hops": 6,
+    "cheapest_edge_cost": 0.5743832091020724,
+    "cheapest_edge": [
+     1918,
+     2001
+    ]
+   },
+   {
+    "query": 307,
+    "delta": 163,
+    "path_cost": 24.71682953778851,
+    "hops": 18,
+    "cheapest_edge_cost": 0.014219960311696988,
+    "cheapest_edge": [
+     1114,
+     2001
+    ]
+   },
+   {
+    "query": 308,
+    "delta": 98,
+    "path_cost": 0.2907579090467769,
+    "hops": 1,
+    "cheapest_edge_cost": 0.2907579090467769,
+    "cheapest_edge": [
+     2000,
+     2001
+    ]
+   },
+   {
+    "query": 309,
+    "delta": 72,
+    "path_cost": 2.706151850136486,
+    "hops": 4,
+    "cheapest_edge_cost": 0.33091956652799875,
+    "cheapest_edge": [
+     1386,
+     2001
+    ]
+   },
+   {
+    "query": 310,
+    "delta": 89,
+    "path_cost": 2.8986983444670673,
+    "hops": 4,
+    "cheapest_edge_cost": 0.015641051189441372,
+    "cheapest_edge": [
+     719,
+     2001
+    ]
+   },
+   {
+    "query": 311,
+    "delta": 182,
+    "path_cost": 17.897513562526527,
+    "hops": 18,
+    "cheapest_edge_cost": 0.014940688726603972,
+    "cheapest_edge": [
+     39,
+     2001
+    ]
+   },
+   {
+    "query": 312,
+    "delta": 90,
+    "path_cost": 10.013202533347167,
+    "hops": 8,
+    "cheapest_edge_cost": 0.3170265928911968,
+    "cheapest_edge": [
+     71,
+     2001
+    ]
+   },
+   {
+    "query": 313,
+    "delta": 177,
+    "path_cost": 27.612128461387936,
+    "hops": 14,
+    "cheapest_edge_cost": 0.6114854480057299,
+    "cheapest_edge": [
+     1626,
+     2001
+    ]
+   },
+   {
+    "query": 314,
+    "delta": 93,
+    "path_cost": 1e-06,
+    "hops": 1,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     2001
+    ]
+   },
+   {
+    "query": 315,
+    "delta": 115,
+    "path_cost": 20.935345629526314,
+    "hops": 16,
+    "cheapest_edge_cost": 0.9881435485566719,
+    "cheapest_edge": [
+     311,
+     2001
+    ]
+   },
+   {
+    "query": 317,
+    "delta": 86,
+    "path_cost": 10.811042009502643,
+    "hops": 8,
+    "cheapest_edge_cost": 0.2872278106880488,
+    "cheapest_edge": [
+     1087,
+     2001
+    ]
+   },
+   {
+    "query": 318,
+    "delta": 67,
+    "path_cost": 2.15656011987815,
+    "hops": 3,
+    "cheapest_edge_cost": 0.5364595434649416,
+    "cheapest_edge": [
+     393,
+     2001
+    ]
+   },
+   {
+    "query": 319,
+    "delta": 107,
+    "path_cost": 4.541194498709617,
+    "hops": 6,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     980
+    ]
+   },
+   {
+    "query": 320,
+    "delta": 98,
+    "path_cost": 1e-06,
+    "hops": 1,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     2001
+    ]
+   },
+   {
+    "query": 321,
+    "delta": 165,
+    "path_cost": 26.174724624271242,
+    "hops": 20,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     547
+    ]
+   },
+   {
+    "query": 322,
+    "delta": 76,
+    "path_cost": 5.804715891367058,
+    "hops": 6,
+    "cheapest_edge_cost": 0.2489092718691244,
+    "cheapest_edge": [
+     1735,
+     2001
+    ]
+   },
+   {
+    "query": 323,
+    "delta": 118,
+    "path_cost": 28.951550850229975,
+    "hops": 19,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     433,
+     2001
+    ]
+   },
+   {
+    "query": 324,
+    "delta": 60,
+    "path_cost": 2.6872852584155416,
+    "hops": 3,
+    "cheapest_edge_cost": 0.49027408993824917,
+    "cheapest_edge": [
+     701,
+     2001
+    ]
+   },
+   {
+    "query": 325,
+    "delta": 104,
+    "path_cost": 14.161664270469975,
+    "hops": 10,
+    "cheapest_edge_cost": 0.4884128682074454,
+    "cheapest_edge": [
+     838,
+     2001
+    ]
+   },
+   {
+    "query": 326,
+    "delta": 97,
+    "path_cost": 17.859059726597902,
+    "hops": 12,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     805
+    ]
+   },
+   {
+    "query": 328,
+    "delta": 61,
+    "path_cost": 10.296163673910092,
+    "hops": 10,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     711
+    ]
+   },
+   {
+    "query": 329,
+    "delta": 186,
+    "path_cost": 22.15099108698091,
+    "hops": 15,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1134,
+     2001
+    ]
+   },
+   {
+    "query": 330,
+    "delta": 115,
+    "path_cost": 17.583575039807453,
+    "hops": 14,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     757,
+     2001
+    ]
+   },
+   {
+    "query": 331,
+    "delta": 172,
+    "path_cost": 22.006590437384435,
+    "hops": 18,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     574,
+     2001
+    ]
+   },
+   {
+    "query": 332,
+    "delta": 200,
+    "path_cost": 22.104185701342704,
+    "hops": 19,
+    "cheapest_edge_cost": 0.1171811624412662,
+    "cheapest_edge": [
+     1722,
+     2001
+    ]
+   },
+   {
+    "query": 333,
+    "delta": 109,
+    "path_cost": 24.538603477283182,
+    "hops": 17,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     254
+    ]
+   },
+   {
+    "query": 334,
+    "delta": 173,
+    "path_cost": 26.493773110651517,
+    "hops": 17,
+    "cheapest_edge_cost": 0.15822987027929666,
+    "cheapest_edge": [
+     643,
+     2001
+    ]
+   },
+   {
+    "query": 335,
+    "delta": 140,
+    "path_cost": 20.90987231665693,
+    "hops": 17,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1646
+    ]
+   },
+   {
+    "query": 336,
+    "delta": 104,
+    "path_cost": 13.844094856850633,
+    "hops": 7,
+    "cheapest_edge_cost": 0.04109679411375031,
+    "cheapest_edge": [
+     1686,
+     2001
+    ]
+   },
+   {
+    "query": 337,
+    "delta": 77,
+    "path_cost": 8.46138568644797,
+    "hops": 4,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1715
+    ]
+   },
+   {
+    "query": 338,
+    "delta": 189,
+    "path_cost": 40.5565362125673,
+    "hops": 20,
+    "cheapest_edge_cost": 0.7420447780731503,
+    "cheapest_edge": [
+     135,
+     2001
+    ]
+   },
+   {
+    "query": 339,
+    "delta": 127,
+    "path_cost": 17.272143270275773,
+    "hops": 15,
+    "cheapest_edge_cost": 0.0007569345519195803,
+    "cheapest_edge": [
+     1843,
+     2001
+    ]
+   },
+   {
+    "query": 340,
+    "delta": 181,
+    "path_cost": 32.46659015108561,
+    "hops": 18,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1086,
+     2001
+    ]
+   },
+   {
+    "query": 341,
+    "delta": 128,
+    "path_cost": 10.145350017915854,
+    "hops": 9,
+    "cheapest_edge_cost": 0.0743775883999065,
+    "cheapest_edge": [
+     1013,
+     2001
+    ]
+   },
+   {
+    "query": 342,
+    "delta": 141,
+    "path_cost": 26.314083785569814,
+    "hops": 21,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     415
+    ]
+   },
+   {
+    "query": 343,
+    "delta": 112,
+    "path_cost": 5.3832779450848065,
+    "hops": 6,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     458,
+     2001
+    ]
+   },
+   {
+    "query": 344,
+    "delta": 119,
+    "path_cost": 4.043467942144394,
+    "hops": 5,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1081
+    ]
+   },
+   {
+    "query": 345,
+    "delta": 188,
+    "path_cost": 22.997199772871124,
+    "hops": 18,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1450,
+     2001
+    ]
+   },
+   {
+    "query": 346,
+    "delta": 79,
+    "path_cost": 1.2890334603297702,
+    "hops": 3,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1291
+    ]
+   },
+   {
+    "query": 347,
+    "delta": 98,
+    "path_cost": 3.0000020000000003,
+    "hops": 4,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     868
+    ]
+   },
+   {
+    "query": 349,
+    "delta": 169,
+    "path_cost": 38.671152662955706,
+    "hops": 16,
+    "cheapest_edge_cost": 0.011579175193340783,
+    "cheapest_edge": [
+     59,
+     2001
+    ]
+   },
+   {
+    "query": 350,
+    "delta": 110,
+    "path_cost": 16.832226921056144,
+    "hops": 10,
+    "cheapest_edge_cost": 0.011533917522075039,
+    "cheapest_edge": [
+     1098,
+     2001
+    ]
+   },
+   {
+    "query": 351,
+    "delta": 115,
+    "path_cost": 8.041927706345417,
+    "hops": 10,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1997
+    ]
+   },
+   {
+    "query": 352,
+    "delta": 176,
+    "path_cost": 24.914507777530485,
+    "hops": 19,
+    "cheapest_edge_cost": 0.28506901976867277,
+    "cheapest_edge": [
+     1848,
+     2001
+    ]
+   },
+   {
+    "query": 354,
+    "delta": 196,
+    "path_cost": 32.332886589883444,
+    "hops": 21,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1507
+    ]
+   },
+   {
+    "query": 355,
+    "delta": 90,
+    "path_cost": 11.883505081602202,
+    "hops": 6,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1730
+    ]
+   },
+   {
+    "query": 356,
+    "delta": 192,
+    "path_cost": 24.919601358577538,
+    "hops": 21,
+    "cheapest_edge_cost": 0.03497173402882258,
+    "cheapest_edge": [
+     1678,
+     2001
+    ]
+   },
+   {
+    "query": 357,
+    "delta": 127,
+    "path_cost": 5.175584704571272,
+    "hops": 7,
+    "cheapest_edge_cost": 0.07556242349312327,
+    "cheapest_edge": [
+     2000,
+     1157
+    ]
+   },
+   {
+    "query": 358,
+    "delta": 197,
+    "path_cost": 32.203222933221234,
+    "hops": 23,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     484
+    ]
+   },
+   {
+    "query": 359,
+    "delta": 185,
+    "path_cost": 18.493499276361227,
+    "hops": 16,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1945,
+     2001
+    ]
+   },
+   {
+    "query": 360,
+    "delta": 156,
+    "path_cost": 21.223296613400624,
+    "hops": 12,
+    "cheapest_edge_cost": 0.13392197504246517,
+    "cheapest_edge": [
+     1145,
+     2001
+    ]
+   },
+   {
+    "query": 361,
+    "delta": 169,
+    "path_cost": 17.140392076212628,
+    "hops": 14,
+    "cheapest_edge_cost": 0.13398420434045558,
+    "cheapest_edge": [
+     1412,
+     2001
+    ]
+   },
+   {
+    "query": 362,
+    "delta": 121,
+    "path_cost": 5.439889384121451,
+    "hops": 6,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1709,
+     2001
+    ]
+   },
+   {
+    "query": 363,
+    "delta": 149,
+    "path_cost": 36.79781937062986,
+    "hops": 16,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     925,
+     2001
+    ]
+   },
+   {
+    "query": 364,
+    "delta": 114,
+    "path_cost": 25.615743500224003,
+    "hops": 17,
+    "cheapest_edge_cost": 1.0,
+    "cheapest_edge": [
+     1235,
+     420
+    ]
+   },
+   {
+    "query": 367,
+    "delta": 67,
+    "path_cost": 1e-06,
+    "hops": 1,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     2001
+    ]
+   },
+   {
+    "query": 368,
+    "delta": 137,
+    "path_cost": 31.617408339590604,
+    "hops": 19,
+    "cheapest_edge_cost": 0.052686370678015536,
+    "cheapest_edge": [
+     2000,
+     1533
+    ]
+   },
+   {
+    "query": 369,
+    "delta": 162,
+    "path_cost": 16.192856099193023,
+    "hops": 18,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1223
+    ]
+   },
+   {
+    "query": 370,
+    "delta": 187,
+    "path_cost": 18.29895493712616,
+    "hops": 20,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1832
+    ]
+   },
+   {
+    "query": 371,
+    "delta": 109,
+    "path_cost": 9.779273766543389,
+    "hops": 6,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1862
+    ]
+   },
+   {
+    "query": 372,
+    "delta": 149,
+    "path_cost": 24.53828961792582,
+    "hops": 22,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1283
+    ]
+   },
+   {
+    "query": 373,
+    "delta": 81,
+    "path_cost": 1e-06,
+    "hops": 1,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     2001
+    ]
+   },
+   {
+    "query": 374,
+    "delta": 94,
+    "path_cost": 23.7353015353376,
+    "hops": 19,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     817
+    ]
+   },
+   {
+    "query": 375,
+    "delta": 74,
+    "path_cost": 0.2511416065043073,
+    "hops": 1,
+    "cheapest_edge_cost": 0.2511416065043073,
+    "cheapest_edge": [
+     2000,
+     2001
+    ]
+   },
+   {
+    "query": 376,
+    "delta": 196,
+    "path_cost": 24.29994259298349,
+    "hops": 19,
+    "cheapest_edge_cost": 0.1300343410807377,
+    "cheapest_edge": [
+     1285,
+     2001
+    ]
+   },
+   {
+    "query": 377,
+    "delta": 105,
+    "path_cost": 22.020194964467724,
+    "hops": 14,
+    "cheapest_edge_cost": 0.16145447935698096,
+    "cheapest_edge": [
+     284,
+     2001
+    ]
+   },
+   {
+    "query": 378,
+    "delta": 130,
+    "path_cost": 21.62518328490333,
+    "hops": 15,
+    "cheapest_edge_cost": 0.04669007656130553,
+    "cheapest_edge": [
+     877,
+     2001
+    ]
+   },
+   {
+    "query": 379,
+    "delta": 183,
+    "path_cost": 20.924915343938945,
+    "hops": 15,
+    "cheapest_edge_cost": 0.06884144376232428,
+    "cheapest_edge": [
+     1888,
+     2001
+    ]
+   },
+   {
+    "query": 380,
+    "delta": 170,
+    "path_cost": 40.30742260400673,
+    "hops": 29,
+    "cheapest_edge_cost": 0.017593919704558255,
+    "cheapest_edge": [
+     366,
+     2001
+    ]
+   },
+   {
+    "query": 381,
+    "delta": 147,
+    "path_cost": 12.523240152265549,
+    "hops": 11,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     936
+    ]
+   },
+   {
+    "query": 382,
+    "delta": 135,
+    "path_cost": 26.173237777998345,
+    "hops": 20,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     547
+    ]
+   },
+   {
+    "query": 383,
+    "delta": 139,
+    "path_cost": 33.42108825687701,
+    "hops": 18,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     402
+    ]
+   },
+   {
+    "query": 384,
+    "delta": 168,
+    "path_cost": 27.01467249901447,
+    "hops": 12,
+    "cheapest_edge_cost": 0.15551101567800704,
+    "cheapest_edge": [
+     1852,
+     2001
+    ]
+   },
+   {
+    "query": 385,
+    "delta": 185,
+    "path_cost": 32.05236346366436,
+    "hops": 19,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1450,
+     2001
+    ]
+   },
+   {
+    "query": 386,
+    "delta": 190,
+    "path_cost": 33.30558454256251,
+    "hops": 22,
+    "cheapest_edge_cost": 0.3532666731572418,
+    "cheapest_edge": [
+     1724,
+     2001
+    ]
+   },
+   {
+    "query": 387,
+    "delta": 97,
+    "path_cost": 9.038481478589526,
+    "hops": 5,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     653,
+     2001
+    ]
+   },
+   {
+    "query": 388,
+    "delta": 175,
+    "path_cost": 27.811228224552423,
+    "hops": 19,
+    "cheapest_edge_cost": 0.6900731312751324,
+    "cheapest_edge": [
+     1301,
+     2001
+    ]
+   },
+   {
+    "query": 389,
+    "delta": 139,
+    "path_cost": 29.460985236188314,
+    "hops": 19,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     434,
+     2001
+    ]
+   },
+   {
+    "query": 390,
+    "delta": 162,
+    "path_cost": 17.977533103201573,
+    "hops": 18,
+    "cheapest_edge_cost": 0.18709521301258863,
+    "cheapest_edge": [
+     1722,
+     2001
+    ]
+   },
+   {
+    "query": 393,
+    "delta": 88,
+    "path_cost": 5.111528818886975,
+    "hops": 6,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1769
+    ]
+   },
+   {
+    "query": 394,
+    "delta": 162,
+    "path_cost": 24.392423227645978,
+    "hops": 17,
+    "cheapest_edge_cost": 0.3952329802801853,
+    "cheapest_edge": [
+     1888,
+     2001
+    ]
+   },
+   {
+    "query": 395,
+    "delta": 118,
+    "path_cost": 16.559141261093213,
+    "hops": 12,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1809,
+     2001
+    ]
+   },
+   {
+    "query": 396,
+    "delta": 84,
+    "path_cost": 0.23974572487959273,
+    "hops": 1,
+    "cheapest_edge_cost": 0.23974572487959273,
+    "cheapest_edge": [
+     2000,
+     2001
+    ]
+   },
+   {
+    "query": 397,
+    "delta": 148,
+    "path_cost": 20.126217235350936,
+    "hops": 21,
+    "cheapest_edge_cost": 0.01359201012288478,
+    "cheapest_edge": [
+     641,
+     2001
+    ]
+   },
+   {
+    "query": 398,
+    "delta": 175,
+    "path_cost": 25.031288071255815,
+    "hops": 16,
+    "cheapest_edge_cost": 0.3850601872214275,
+    "cheapest_edge": [
+     438,
+     2001
+    ]
+   },
+   {
+    "query": 399,
+    "delta": 181,
+    "path_cost": 21.233206879000456,
+    "hops": 15,
+    "cheapest_edge_cost": 0.1767753325222172,
+    "cheapest_edge": [
+     168,
+     2001
+    ]
+   },
+   {
+    "query": 400,
+    "delta": 99,
+    "path_cost": 1.3968012683514246,
+    "hops": 3,
+    "cheapest_edge_cost": 0.11272339158347165,
+    "cheapest_edge": [
+     2000,
+     1289
+    ]
+   },
+   {
+    "query": 401,
+    "delta": 79,
+    "path_cost": 9.645337596215043,
+    "hops": 10,
+    "cheapest_edge_cost": 0.295989695845097,
+    "cheapest_edge": [
+     1386,
+     2001
+    ]
+   },
+   {
+    "query": 402,
+    "delta": 72,
+    "path_cost": 5.5870680692693595,
+    "hops": 5,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1503,
+     2001
+    ]
+   },
+   {
+    "query": 403,
+    "delta": 178,
+    "path_cost": 27.271794225539686,
+    "hops": 19,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     79
+    ]
+   },
+   {
+    "query": 404,
+    "delta": 93,
+    "path_cost": 5.426886858449889,
+    "hops": 7,
+    "cheapest_edge_cost": 0.09779503895458445,
+    "cheapest_edge": [
+     1176,
+     2001
+    ]
+   },
+   {
+    "query": 405,
+    "delta": 81,
+    "path_cost": 11.123069193277951,
+    "hops": 7,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1870,
+     2001
+    ]
+   },
+   {
+    "query": 406,
+    "delta": 141,
+    "path_cost": 22.198248537707748,
+    "hops": 16,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     99
+    ]
+   },
+   {
+    "query": 407,
+    "delta": 98,
+    "path_cost": 27.21006309980918,
+    "hops": 19,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     17,
+     2001
+    ]
+   },
+   {
+    "query": 408,
+    "delta": 136,
+    "path_cost": 22.41014167556899,
+    "hops": 21,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1689,
+     2001
+    ]
+   },
+   {
+    "query": 409,
+    "delta": 86,
+    "path_cost": 23.248544533957265,
+    "hops": 17,
+    "cheapest_edge_cost": 0.2448892592189446,
+    "cheapest_edge": [
+     1724,
+     2001
+    ]
+   },
+   {
+    "query": 410,
+    "delta": 185,
+    "path_cost": 32.764766915220434,
+    "hops": 22,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1507
+    ]
+   },
+   {
+    "query": 411,
+    "delta": 156,
+    "path_cost": 31.953259193612688,
+    "hops": 12,
+    "cheapest_edge_cost": 0.4568671398934397,
+    "cheapest_edge": [
+     1345,
+     2001
+    ]
+   },
+   {
+    "query": 412,
+    "delta": 125,
+    "path_cost": 30.244089870987168,
+    "hops": 14,
+    "cheapest_edge_cost": 0.0845073866709618,
+    "cheapest_edge": [
+     512,
+     2001
+    ]
+   },
+   {
+    "query": 413,
+    "delta": 152,
+    "path_cost": 15.145337794638683,
+    "hops": 16,
+    "cheapest_edge_cost": 0.4060959528257456,
+    "cheapest_edge": [
+     709,
+     2001
+    ]
+   },
+   {
+    "query": 414,
+    "delta": 166,
+    "path_cost": 30.93279560208619,
+    "hops": 14,
+    "cheapest_edge_cost": 0.332690272916271,
+    "cheapest_edge": [
+     1056,
+     2001
+    ]
+   },
+   {
+    "query": 415,
+    "delta": 153,
+    "path_cost": 21.647166317073843,
+    "hops": 21,
+    "cheapest_edge_cost": 0.25152855959362935,
+    "cheapest_edge": [
+     1848,
+     2001
+    ]
+   },
+   {
+    "query": 416,
+    "delta": 197,
+    "path_cost": 21.493088174130442,
+    "hops": 18,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1578
+    ]
+   },
+   {
+    "query": 417,
+    "delta": 187,
+    "path_cost": 35.97372626328799,
+    "hops": 23,
+    "cheapest_edge_cost": 0.08683702529936602,
+    "cheapest_edge": [
+     17,
+     2001
+    ]
+   },
+   {
+    "query": 418,
+    "delta": 163,
+    "path_cost": 42.71895654478155,
+    "hops": 21,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     10
+    ]
+   },
+   {
+    "query": 419,
+    "delta": 108,
+    "path_cost": 29.461301591421815,
+    "hops": 21,
+    "cheapest_edge_cost": 0.09005145140101553,
+    "cheapest_edge": [
+     148,
+     2001
+    ]
+   },
+   {
+    "query": 420,
+    "delta": 167,
+    "path_cost": 32.358216995556774,
+    "hops": 21,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     933,
+     2001
+    ]
+   },
+   {
+    "query": 421,
+    "delta": 110,
+    "path_cost": 7.762279621496338,
+    "hops": 8,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1118
+    ]
+   },
+   {
+    "query": 422,
+    "delta": 136,
+    "path_cost": 10.538508743028325,
+    "hops": 9,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     732,
+     2001
+    ]
+   },
+   {
+    "query": 423,
+    "delta": 170,
+    "path_cost": 36.549986325503625,
+    "hops": 19,
+    "cheapest_edge_cost": 0.6036445564589397,
+    "cheapest_edge": [
+     78,
+     2001
+    ]
+   },
+   {
+    "query": 424,
+    "delta": 151,
+    "path_cost": 14.441585139684049,
+    "hops": 12,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     795
+    ]
+   },
+   {
+    "query": 425,
+    "delta": 189,
+    "path_cost": 22.08606090128075,
+    "hops": 18,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     32,
+     2001
+    ]
+   },
+   {
+    "query": 426,
+    "delta": 137,
+    "path_cost": 26.976607128038776,
+    "hops": 22,
+    "cheapest_edge_cost": 0.02408726408941098,
+    "cheapest_edge": [
+     1503,
+     2001
+    ]
+   },
+   {
+    "query": 427,
+    "delta": 123,
+    "path_cost": 16.103765558326614,
+    "hops": 15,
+    "cheapest_edge_cost": 0.026683922978283082,
+    "cheapest_edge": [
+     1895,
+     2001
+    ]
+   },
+   {
+    "query": 428,
+    "delta": 180,
+    "path_cost": 23.345746363430568,
+    "hops": 21,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1281,
+     2001
+    ]
+   },
+   {
+    "query": 429,
+    "delta": 165,
+    "path_cost": 32.552182585387335,
+    "hops": 24,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1629,
+     2001
+    ]
+   },
+   {
+    "query": 430,
+    "delta": 144,
+    "path_cost": 21.599766607978946,
+    "hops": 16,
+    "cheapest_edge_cost": 0.08527676708247947,
+    "cheapest_edge": [
+     684,
+     2001
+    ]
+   },
+   {
+    "query": 431,
+    "delta": 117,
+    "path_cost": 25.258439286893946,
+    "hops": 7,
+    "cheapest_edge_cost": 0.26439644697626224,
+    "cheapest_edge": [
+     1960,
+     2001
+    ]
+   },
+   {
+    "query": 432,
+    "delta": 164,
+    "path_cost": 37.896075422714034,
+    "hops": 20,
+    "cheapest_edge_cost": 0.023452525249908908,
+    "cheapest_edge": [
+     1658,
+     2001
+    ]
+   },
+   {
+    "query": 433,
+    "delta": 163,
+    "path_cost": 24.69176359870473,
+    "hops": 17,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     543,
+     2001
+    ]
+   },
+   {
+    "query": 435,
+    "delta": 175,
+    "path_cost": 18.29895493712616,
+    "hops": 20,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1832
+    ]
+   },
+   {
+    "query": 436,
+    "delta": 141,
+    "path_cost": 30.991073527459708,
+    "hops": 11,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1695,
+     2001
+    ]
+   },
+   {
+    "query": 437,
+    "delta": 180,
+    "path_cost": 19.75548638508907,
+    "hops": 17,
+    "cheapest_edge_cost": 0.07620939264438752,
+    "cheapest_edge": [
+     1307,
+     2001
+    ]
+   },
+   {
+    "query": 438,
+    "delta": 126,
+    "path_cost": 11.498329924205716,
+    "hops": 9,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     301
+    ]
+   },
+   {
+    "query": 439,
+    "delta": 129,
+    "path_cost": 15.290844859617504,
+    "hops": 12,
+    "cheapest_edge_cost": 0.06355082199135872,
+    "cheapest_edge": [
+     1993,
+     2001
+    ]
+   },
+   {
+    "query": 440,
+    "delta": 167,
+    "path_cost": 27.475619245094453,
+    "hops": 14,
+    "cheapest_edge_cost": 0.7838238315812317,
+    "cheapest_edge": [
+     409,
+     2001
+    ]
+   },
+   {
+    "query": 441,
+    "delta": 117,
+    "path_cost": 19.939055233195518,
+    "hops": 18,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     186,
+     2001
+    ]
+   },
+   {
+    "query": 442,
+    "delta": 86,
+    "path_cost": 1.4092967286125309,
+    "hops": 1,
+    "cheapest_edge_cost": 1.4092967286125309,
+    "cheapest_edge": [
+     2000,
+     2001
+    ]
+   },
+   {
+    "query": 443,
+    "delta": 159,
+    "path_cost": 26.481429110731604,
+    "hops": 19,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     874
+    ]
+   },
+   {
+    "query": 444,
+    "delta": 82,
+    "path_cost": 22.74470630247741,
+    "hops": 21,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     1158,
+     2001
+    ]
+   },
+   {
+    "query": 445,
+    "delta": 171,
+    "path_cost": 24.476989772057927,
+    "hops": 19,
+    "cheapest_edge_cost": 0.22158834716777595,
+    "cheapest_edge": [
+     1047,
+     2001
+    ]
+   },
+   {
+    "query": 446,
+    "delta": 186,
+    "path_cost": 23.798456168273045,
+    "hops": 13,
+    "cheapest_edge_cost": 0.06471168125932507,
+    "cheapest_edge": [
+     137,
+     2001
+    ]
+   },
+   {
+    "query": 447,
+    "delta": 134,
+    "path_cost": 21.805095000781563,
+    "hops": 19,
+    "cheapest_edge_cost": 0.19535813234393196,
+    "cheapest_edge": [
+     346,
+     2001
+    ]
+   },
+   {
+    "query": 448,
+    "delta": 144,
+    "path_cost": 35.114975047350406,
+    "hops": 17,
+    "cheapest_edge_cost": 0.07769837002903052,
+    "cheapest_edge": [
+     160,
+     2001
+    ]
+   },
+   {
+    "query": 450,
+    "delta": 134,
+    "path_cost": 24.609052263535595,
+    "hops": 19,
+    "cheapest_edge_cost": 0.0037631753657466726,
+    "cheapest_edge": [
+     1667,
+     2001
+    ]
+   },
+   {
+    "query": 451,
+    "delta": 175,
+    "path_cost": 21.40153140695172,
+    "hops": 19,
+    "cheapest_edge_cost": 0.13728914578463658,
+    "cheapest_edge": [
+     1417,
+     2001
+    ]
+   },
+   {
+    "query": 452,
+    "delta": 103,
+    "path_cost": 27.936060410332033,
+    "hops": 20,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     547
+    ]
+   },
+   {
+    "query": 453,
+    "delta": 66,
+    "path_cost": 15.166399005987815,
+    "hops": 16,
+    "cheapest_edge_cost": 0.12507183742644878,
+    "cheapest_edge": [
+     549,
+     2001
+    ]
+   },
+   {
+    "query": 454,
+    "delta": 172,
+    "path_cost": 34.667736757265246,
+    "hops": 22,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     371,
+     2001
+    ]
+   },
+   {
+    "query": 455,
+    "delta": 132,
+    "path_cost": 23.91040436502886,
+    "hops": 14,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     969
+    ]
+   },
+   {
+    "query": 456,
+    "delta": 141,
+    "path_cost": 26.074462152220708,
+    "hops": 12,
+    "cheapest_edge_cost": 1.0,
+    "cheapest_edge": [
+     1725,
+     451
+    ]
+   },
+   {
+    "query": 457,
+    "delta": 91,
+    "path_cost": 1.2560210747914526,
+    "hops": 3,
+    "cheapest_edge_cost": 0.05223640417492254,
+    "cheapest_edge": [
+     341,
+     2001
+    ]
+   },
+   {
+    "query": 458,
+    "delta": 197,
+    "path_cost": 28.14885588314724,
+    "hops": 22,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1734
+    ]
+   },
+   {
+    "query": 459,
+    "delta": 64,
+    "path_cost": 2.27479336179952,
+    "hops": 3,
+    "cheapest_edge_cost": 0.3203903693080232,
+    "cheapest_edge": [
+     463,
+     2001
+    ]
+   },
+   {
+    "query": 460,
+    "delta": 112,
+    "path_cost": 13.062750249849318,
+    "hops": 6,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     471,
+     2001
+    ]
+   },
+   {
+    "query": 461,
+    "delta": 126,
+    "path_cost": 7.49813187189714,
+    "hops": 7,
+    "cheapest_edge_cost": 0.10979284760713337,
+    "cheapest_edge": [
+     1767,
+     2001
+    ]
+   },
+   {
+    "query": 462,
+    "delta": 185,
+    "path_cost": 24.869894520633093,
+    "hops": 18,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     997,
+     2001
+    ]
+   },
+   {
+    "query": 463,
+    "delta": 168,
+    "path_cost": 20.942071521966955,
+    "hops": 17,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     230
+    ]
+   },
+   {
+    "query": 464,
+    "delta": 199,
+    "path_cost": 28.25002750400387,
+    "hops": 23,
+    "cheapest_edge_cost": 0.014266349424744376,
+    "cheapest_edge": [
+     184,
+     2001
+    ]
+   },
+   {
+    "query": 465,
+    "delta": 150,
+    "path_cost": 20.33194392573703,
+    "hops": 11,
+    "cheapest_edge_cost": 0.20622798436820028,
+    "cheapest_edge": [
+     2000,
+     101
+    ]
+   },
+   {
+    "query": 466,
+    "delta": 155,
+    "path_cost": 26.258785045965876,
+    "hops": 21,
+    "cheapest_edge_cost": 0.22208844443526243,
+    "cheapest_edge": [
+     1876,
+     2001
+    ]
+   },
+   {
+    "query": 467,
+    "delta": 184,
+    "path_cost": 25.054658934146165,
+    "hops": 18,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     803,
+     2001
+    ]
+   },
+   {
+    "query": 469,
+    "delta": 78,
+    "path_cost": 16.674841765563173,
+    "hops": 12,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     36
+    ]
+   },
+   {
+    "query": 470,
+    "delta": 168,
+    "path_cost": 22.301784945378746,
+    "hops": 20,
+    "cheapest_edge_cost": 0.2298587180157787,
+    "cheapest_edge": [
+     2000,
+     929
+    ]
+   },
+   {
+    "query": 471,
+    "delta": 109,
+    "path_cost": 9.251127661077062,
+    "hops": 9,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     977,
+     2001
+    ]
+   },
+   {
+    "query": 472,
+    "delta": 111,
+    "path_cost": 14.914797835225041,
+    "hops": 11,
+    "cheapest_edge_cost": 0.13566213250263306,
+    "cheapest_edge": [
+     1521,
+     2001
+    ]
+   },
+   {
+    "query": 473,
+    "delta": 171,
+    "path_cost": 17.479098261840107,
+    "hops": 17,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1784
+    ]
+   },
+   {
+    "query": 474,
+    "delta": 60,
+    "path_cost": 0.23496312046858517,
+    "hops": 1,
+    "cheapest_edge_cost": 0.23496312046858517,
+    "cheapest_edge": [
+     2000,
+     2001
+    ]
+   },
+   {
+    "query": 475,
+    "delta": 191,
+    "path_cost": 19.594505002088763,
+    "hops": 16,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     792
+    ]
+   },
+   {
+    "query": 476,
+    "delta": 172,
+    "path_cost": 46.73083362441064,
+    "hops": 23,
+    "cheapest_edge_cost": 0.07533478814717699,
+    "cheapest_edge": [
+     943,
+     2001
+    ]
+   },
+   {
+    "query": 477,
+    "delta": 130,
+    "path_cost": 24.95696744506262,
+    "hops": 22,
+    "cheapest_edge_cost": 0.16811527712551694,
+    "cheapest_edge": [
+     1692,
+     2001
+    ]
+   },
+   {
+    "query": 479,
+    "delta": 109,
+    "path_cost": 13.396010422446324,
+    "hops": 15,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     942
+    ]
+   },
+   {
+    "query": 480,
+    "delta": 90,
+    "path_cost": 18.52056791316602,
+    "hops": 17,
+    "cheapest_edge_cost": 0.031429189810496416,
+    "cheapest_edge": [
+     776,
+     2001
+    ]
+   },
+   {
+    "query": 481,
+    "delta": 147,
+    "path_cost": 19.799284127770765,
+    "hops": 18,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     971,
+     2001
+    ]
+   },
+   {
+    "query": 482,
+    "delta": 185,
+    "path_cost": 25.21590281456127,
+    "hops": 17,
+    "cheapest_edge_cost": 0.09155853185416483,
+    "cheapest_edge": [
+     1564,
+     2001
+    ]
+   },
+   {
+    "query": 483,
+    "delta": 112,
+    "path_cost": 1e-06,
+    "hops": 1,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     2001
+    ]
+   },
+   {
+    "query": 484,
+    "delta": 187,
+    "path_cost": 39.67843030904285,
+    "hops": 19,
+    "cheapest_edge_cost": 0.3138393213923067,
+    "cheapest_edge": [
+     1352,
+     2001
+    ]
+   },
+   {
+    "query": 485,
+    "delta": 136,
+    "path_cost": 21.23724152240623,
+    "hops": 17,
+    "cheapest_edge_cost": 0.007185786755218616,
+    "cheapest_edge": [
+     1732,
+     2001
+    ]
+   },
+   {
+    "query": 486,
+    "delta": 77,
+    "path_cost": 8.189426248289493,
+    "hops": 8,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     2000,
+     1966
+    ]
+   },
+   {
+    "query": 487,
+    "delta": 141,
+    "path_cost": 14.570801261124066,
+    "hops": 13,
+    "cheapest_edge_cost": 0.13974776877614817,
+    "cheapest_edge": [
+     1594,
+     2001
+    ]
+   },
+   {
+    "query": 489,
+    "delta": 150,
+    "path_cost": 23.267979491454668,
+    "hops": 20,
+    "cheapest_edge_cost": 0.054088574371473144,
+    "cheapest_edge": [
+     1719,
+     2001
+    ]
+   },
+   {
+    "query": 490,
+    "delta": 164,
+    "path_cost": 23.547543555895228,
+    "hops": 15,
+    "cheapest_edge_cost": 0.23022690517062497,
+    "cheapest_edge": [
+     198,
+     2001
+    ]
+   },
+   {
+    "query": 491,
+    "delta": 162,
+    "path_cost": 43.87553630268494,
+    "hops": 18,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     913,
+     2001
+    ]
+   },
+   {
+    "query": 492,
+    "delta": 181,
+    "path_cost": 25.39220017142951,
+    "hops": 21,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     112,
+     2001
+    ]
+   },
+   {
+    "query": 493,
+    "delta": 179,
+    "path_cost": 23.711907386969468,
+    "hops": 17,
+    "cheapest_edge_cost": 0.05454001964234895,
+    "cheapest_edge": [
+     1992,
+     2001
+    ]
+   },
+   {
+    "query": 494,
+    "delta": 148,
+    "path_cost": 34.48477620569241,
+    "hops": 19,
+    "cheapest_edge_cost": 0.06162850240434621,
+    "cheapest_edge": [
+     1959,
+     2001
+    ]
+   },
+   {
+    "query": 495,
+    "delta": 127,
+    "path_cost": 11.553367893694256,
+    "hops": 12,
+    "cheapest_edge_cost": 0.02628678691292617,
+    "cheapest_edge": [
+     1773,
+     2001
+    ]
+   },
+   {
+    "query": 497,
+    "delta": 163,
+    "path_cost": 27.280338922109255,
+    "hops": 13,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     76,
+     2001
+    ]
+   },
+   {
+    "query": 498,
+    "delta": 107,
+    "path_cost": 25.385406647934477,
+    "hops": 18,
+    "cheapest_edge_cost": 1e-06,
+    "cheapest_edge": [
+     941,
+     2001
+    ]
+   },
+   {
+    "query": 499,
+    "delta": 107,
+    "path_cost": 15.642286084350056,
+    "hops": 14,
+    "cheapest_edge_cost": 0.1512194570002328,
+    "cheapest_edge": [
+     1166,
+     2001
+    ]
+   }
+  ]
+ },
+ "G_sweep": [
+  {
+   "N": 1000,
+   "k": 10,
+   "n_edges": 13633,
+   "largest_scc_fraction": 1.0,
+   "n_wcc": 1,
+   "edge_p99": 27.22286117553712,
+   "negative_fraction_edges": 0.1315191080466515,
+   "negative_fraction_all": 0.0019369369369369369,
+   "path_success": 1.0,
+   "median_path_ratio": 0.15732192110838844,
+   "wormhole_suspects": 446,
+   "shortcut_fraction": 0.0
+  },
+  {
+   "N": 2000,
+   "k": 10,
+   "n_edges": 43784,
+   "largest_scc_fraction": 1.0,
+   "n_wcc": 1,
+   "edge_p99": 14.73931554794305,
+   "negative_fraction_edges": 0.17241458066873744,
+   "negative_fraction_all": 0.002205352676338169,
+   "path_success": 1.0,
+   "median_path_ratio": 0.1435947756146974,
+   "wormhole_suspects": 465,
+   "shortcut_fraction": 0.0
+  },
+  {
+   "N": 5000,
+   "k": 10,
+   "n_edges": 160734,
+   "largest_scc_fraction": 0.9994,
+   "n_wcc": 1,
+   "edge_p99": 6.927130478620606,
+   "negative_fraction_edges": 0.17858698221907002,
+   "negative_fraction_all": 0.0020616923384676935,
+   "path_success": 1.0,
+   "median_path_ratio": 0.13515057433244915,
+   "wormhole_suspects": 486,
+   "shortcut_fraction": 0.0
+  }
+ ]
+}
